@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# Source dump — kept locally, not published
+pl-900.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+.claude/
