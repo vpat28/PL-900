@@ -193,10 +193,15 @@ reference app. Motion is gated on `REDUCED` in JS and a media query in CSS.
 ring on the Yes/No radio you should have picked. They are different things —
 do not merge the class names.
 
+Colors, radii, and shadows are tokens on `:root` (`--accent`, `--r-md`,
+`--shadow`…) with a dark counterpart in the same block. The primary button is
+accent-filled and uses `--on-accent` for its label; ghost buttons are the muted
+outline. There is no page footer.
+
 ### Hard constraints
 
-- **No `localStorage`, `sessionStorage`, or cookies.** Sessions are ephemeral
-  and the footer promises this.
+- **No `localStorage`, `sessionStorage`, or cookies.** Sessions are deliberately
+  ephemeral: closing the tab clears everything.
 - **No external requests.** No CDNs, no web fonts, no analytics, no images. It
   must work offline and from `file://` — which is why the bank is baked in
   rather than fetched.
