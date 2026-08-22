@@ -243,6 +243,35 @@ JS and a media query in CSS.
 ring on the Yes/No radio you should have picked; `.mark` is the graded ✓/✕ in
 the row rail. They are different things — do not merge the class names.
 
+### Touch and small screens
+
+The app is meant to be usable on a phone and an iPad, which the exam client
+never has to be, so a few rules exist only for that:
+
+- **Drag is never the only way.** HTML5 drag-and-drop does not fire on iOS
+  Safari at all. Tap-an-item-then-tap-a-slot is the primary interaction and
+  drag is the convenience on top; the hint text says "tap" or "click" depending
+  on `TOUCH` (`matchMedia('(hover:none)')`). Picking an item on a touch device
+  scrolls the first open slot into view, because the pool and the answer area
+  do not fit on a phone together.
+- **44px touch targets.** The Yes/No control is a 44px `button.dot` wrapping an
+  18px `span.ring`; the button is the hit area and the ring is what you see.
+  Never collapse them back into one element.
+- **16px form text on touch.** `.sel` goes to 16px under `(hover:none)` — below
+  that, iOS Safari zooms the page when a `<select>` takes focus, and it does not
+  zoom back out.
+- **Three breakpoints, not one.** 760px shrinks the chrome and stacks the mode
+  cards; 620px is where the answer-area tables collapse to one column, chosen
+  so an iPad in portrait (744–834px) keeps the real three-column table; and
+  `(hover:none)` handles target sizes independently of width.
+- The fixed action bar adds `env(safe-area-inset-bottom)`, and the sheet's
+  min-height is `100dvh` with a `100vh` fallback, so the iOS toolbars do not
+  cover the buttons.
+
+Verified with device emulation over CDP at iPhone SE / 15 / 15 Pro Max
+(portrait and landscape), iPad mini, iPad Pro 11", and iPad Pro 12.9 landscape:
+no horizontal overflow, tap-to-place works, no control under 44px.
+
 ### Hard constraints
 
 - **No `localStorage`, `sessionStorage`, or cookies.** Sessions are deliberately

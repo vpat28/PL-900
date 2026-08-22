@@ -56,11 +56,15 @@ body{
 }
 .wrap{
   max-width:var(--maxw);margin:20px auto 0;padding:34px 40px 60px;
-  background:var(--white);border:1px solid var(--n-200);min-height:calc(100vh - 40px);
+  background:var(--white);border:1px solid var(--n-200);
+  min-height:calc(100vh - 40px);min-height:calc(100dvh - 40px);
 }
 /* During a session the sheet sits under the exam chrome and above the fixed
    action bar, so it fills the viewport the way the delivery UI does. */
-body:has(#quiz:not([hidden])) .wrap{margin-top:0;border-top:0;padding-bottom:110px;min-height:calc(100vh - 96px)}
+body:has(#quiz:not([hidden])) .wrap{
+  margin-top:0;border-top:0;min-height:calc(100vh - 96px);min-height:calc(100dvh - 96px);
+  padding-bottom:calc(110px + env(safe-area-inset-bottom));
+}
 .mono{font-family:var(--font-mono)}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
 [hidden]{display:none !important}
@@ -97,7 +101,10 @@ body:has(#quiz:not([hidden])) .wrap{margin-top:0;border-top:0;padding-bottom:110
 .track>i{display:block;height:100%;width:0;background:var(--blue);transition:width .3s ease}
 
 .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--white);border-top:1px solid var(--n-200);box-shadow:0 -1px 3px rgba(0,0,0,.05)}
-.actionbar-inner{max-width:var(--maxw);margin:0 auto;padding:12px 40px;display:flex;align-items:center;gap:10px}
+.actionbar-inner{
+  max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:10px;
+  padding:12px 40px;padding-bottom:calc(12px + env(safe-area-inset-bottom));
+}
 .actionbar-inner .grow{flex:1}
 
 /* ---------- masthead / setup ---------- */
@@ -223,17 +230,21 @@ body:has(#quiz:not([hidden])) .wrap{margin-top:0;border-top:0;padding-bottom:110
 .row.od{grid-template-columns:var(--gutter) 1fr}
 .cell{display:flex;align-items:center;gap:8px;padding:10px 14px;border-left:1px solid var(--n-100);flex-wrap:wrap}
 .row.yn .cell{justify-content:center}
+/* The button is the touch target (44px, per the iOS guidance); `.ring` is the
+   18px circle you actually see. Keeping them separate is what lets the hit area
+   grow without the control looking oversized. */
 .dot{
-  width:18px;height:18px;border-radius:50%;border:1px solid var(--n-600);background:var(--white);
-  cursor:pointer;padding:0;position:relative;flex:none;transition:.1s;
+  width:44px;height:44px;min-width:44px;border:0;background:none;padding:0;margin:-13px 0;
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none;
 }
-.dot:hover{border-color:var(--blue)}
-.dot[aria-checked="true"]{border-color:var(--blue)}
-.dot[aria-checked="true"]::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--blue)}
-.dot.key{border-color:var(--ok);border-style:dashed}
-.dot.key::before{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--ok);opacity:.35}
+.ring{width:18px;height:18px;border-radius:50%;border:1px solid var(--n-600);background:var(--white);position:relative;transition:.1s}
+.dot:hover .ring{border-color:var(--blue)}
+.dot[aria-checked="true"] .ring{border-color:var(--blue)}
+.dot[aria-checked="true"] .ring::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--blue)}
+.dot.key .ring{border-color:var(--ok);border-style:dashed}
+.dot.key .ring::before{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--ok);opacity:.35}
 .dot:disabled{cursor:default}
-.dot:focus-visible{outline:1px dashed var(--ink);outline-offset:2px}
+.dot:focus-visible{outline:1px dashed var(--ink);outline-offset:-8px;border-radius:50%}
 .sel{
   font-family:inherit;font-size:14px;color:var(--text);background:var(--white);
   border:1px solid var(--n-600);border-radius:var(--r);padding:6px 8px;width:100%;height:32px;cursor:pointer;
@@ -335,7 +346,6 @@ body:has(#quiz:not([hidden])) .wrap{margin-top:0;border-top:0;padding-bottom:110
 .note{font-size:14.5px;color:var(--muted);margin:14px 0 0}
 
 @media (max-width:760px){
-  :root{--gutter:38px}
   body{font-size:14.5px}
   .wrap{margin-top:0;padding:22px 16px 100px;border-left:0;border-right:0}
   .examtop-inner,.bar-inner,.actionbar-inner{padding-left:16px;padding-right:16px}
@@ -347,12 +357,38 @@ body:has(#quiz:not([hidden])) .wrap{margin-top:0;border-top:0;padding-bottom:110
   .stat{flex:1 1 100%}
   .pct{font-size:50px}
   .kbd{display:none}
-  .actionbar-inner .btn{flex:1;min-width:0}
   .bar-row{grid-template-columns:1fr 72px}
-  .rows.yn .head,.row.yn{grid-template-columns:var(--gutter) 1fr 56px 56px}
+}
+/* Phones only. An iPad in portrait is 744-834px wide and holds the real
+   three-column answer area perfectly well, so the stacking starts below that. */
+@media (max-width:620px){
+  :root{--gutter:38px}
+  /* The info strip has to stay one line: the exam's does, and a wrapped one
+     doubles the height of the chrome above every question. */
+  .bar-inner{flex-wrap:nowrap;gap:10px}
+  .bar-inner .pill,.bar-inner .sep,#barBank{display:none}
+  .qcount,.clock{white-space:nowrap}
+  .qcount{font-size:13.5px}
+  .clock{font-size:12.5px;padding:3px 8px}
+  .actionbar-inner .grow{display:none}
+  .actionbar-inner .btn{flex:1;min-width:0}
+  .rows.yn .head,.row.yn{grid-template-columns:var(--gutter) 1fr 60px 60px}
   .rows.dd .head,.row.dd,.rows.mt .head,.row.mt{grid-template-columns:var(--gutter) 1fr}
   .rows.dd .head>span:last-child,.rows.mt .head>span:last-child{display:none}
   .row.dd .cell,.row.mt .cell{grid-column:1 / -1;border-left:0;border-top:1px solid var(--n-100);padding-left:calc(var(--gutter) + 14px)}
+}
+/* Touch: 16px form text so iOS does not zoom on focus, and finger-sized
+   controls throughout. */
+@media (hover:none){
+  .sel{font-size:16px;height:38px}
+  .tile{min-height:40px;padding:9px 13px}
+  .slot{min-height:44px;padding:11px 12px}
+  .chip{padding:9px 16px}
+  .tab{padding:13px 14px 14px}
+  .btn{height:40px}
+  .check input{width:20px;height:20px}
+  .map .cell{width:36px;height:36px}
+  .tile{cursor:pointer}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
 </style>
@@ -492,6 +528,7 @@ const $ = id => document.getElementById(id);
 const LETTERS = "ABCDEFGHIJ";
 const MOCK_N = 50, MOCK_SEC = 45 * 60;
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const TOUCH = matchMedia('(hover:none)').matches;
 const KIND_NAME = { choice:'multiple choice', yesno:'yes / no', dropdown:'select from lists', match:'drag and drop', order:'put in order' };
 
 /* The banks stay separate all the way down: a session draws from exactly one of
@@ -718,7 +755,7 @@ function yesnoRows(q, picks, done, fresh){
       const on = same(picks[i], v);
       const key = done && state === false && same(r.answer, v);
       return `<div class="cell"><button class="dot${key ? ' key' : ''}" role="radio" aria-checked="${on}"
-        aria-label="${esc(r.text)} — ${v}" data-i="${i}" data-v="${v}"${done ? ' disabled' : ''}></button></div>`;
+        aria-label="${esc(r.text)} — ${v}" data-i="${i}" data-v="${v}"${done ? ' disabled' : ''}><span class="ring"></span></button></div>`;
     }).join('');
     return `<div class="${cls}"><div class="gut">${gutter(state, r.answer ? i + 1 : '·')}</div>
       <div class="body">${esc(r.text)}${r.answer ? '' : ' <span class="ungraded">not graded</span>'}</div>${cells}</div>`;
@@ -764,7 +801,9 @@ function matchRows(q, picks, done, fresh){
       <div class="cell"><button class="slot ${picks[i] ? 'filled' : 'empty'}" data-i="${i}"${done ? ' disabled' : ''}>${esc(picks[i] || '')}</button>${want}</div></div>`;
   }).join('');
   return `${poolHtml(q, picks, done, false)}<p class="arealbl">Answer area</p><div class="rows mt">${head}${body}</div>
-    ${done ? '' : '<p class="hint">Click an item, then click a slot — or drag it across. Click a filled slot to clear it. Items can be used more than once.</p>'}`;
+    ${done ? '' : `<p class="hint">${TOUCH
+      ? 'Tap an item, then tap a slot. Tap a filled slot to clear it. Items can be used more than once.'
+      : 'Click an item, then click a slot — or drag it across. Click a filled slot to clear it. Items can be used more than once.'}</p>`}`;
 }
 
 function orderRows(q, picks, done, fresh){
@@ -776,7 +815,9 @@ function orderRows(q, picks, done, fresh){
       <div class="cell"><button class="slot ${picks[i] ? 'filled' : 'empty'}" data-i="${i}"${done ? ' disabled' : ''}>${esc(picks[i] || '')}</button>${want}</div></div>`;
   }).join('');
   return `${poolHtml(q, picks, done, true)}<p class="arealbl">Answer area — in order</p><div class="rows od">${body}</div>
-    ${done ? '' : '<p class="hint">Click an action, then click the step it belongs in — or drag it across. Click a filled step to send it back.</p>'}`;
+    ${done ? '' : `<p class="hint">${TOUCH
+      ? 'Tap an action, then tap the step it belongs in. Tap a filled step to send it back.'
+      : 'Click an action, then click the step it belongs in — or drag it across. Click a filled step to send it back.'}</p>`}`;
 }
 
 /* ---------- interaction ---------- */
@@ -819,7 +860,16 @@ function bind(root){
     picks[+s.dataset.i] = s.value || null; render();
   });
   root.querySelectorAll('.tile').forEach(t => {
-    t.onclick = () => { held = same(held, t.dataset.t) ? null : t.dataset.t; render(); };
+    t.onclick = () => {
+      held = same(held, t.dataset.t) ? null : t.dataset.t;
+      render();
+      /* On a phone the pool and the answer area rarely fit together, so picking
+         an item brings the first open slot to you. */
+      if (held != null && TOUCH){
+        const slot = $('qWidget').querySelector('.slot.empty') || $('qWidget').querySelector('.slot');
+        if (slot) slot.scrollIntoView({ block: 'center', behavior: REDUCED ? 'auto' : 'smooth' });
+      }
+    };
     t.ondragstart = e => { held = t.dataset.t; e.dataTransfer.setData('text/plain', t.dataset.t); };
   });
   root.querySelectorAll('.slot').forEach(s => {
