@@ -53,6 +53,10 @@ OCR_FIXES = [
     (r"\bPowerApps\b", "Power Apps"),
     (r"\btempiate\b", "template"),
     (r"\bCusto\b", "Customer"),
+    (r"\bAPls\b", "APIs"),
+    (r"\bPower Bi\b", "Power BI"),
+    # A digit and its enclosing keycap arrived separated; render it as a list number.
+    (r"(\d)\s*\u20e3", r"\1."),
 ]
 STRAY = re.compile(r"(?:^|\s)[O0](?=\s|$)")          # unfilled radio buttons OCR as O
 END = re.compile(r"[.?!:]\s*$")
@@ -61,7 +65,7 @@ COL_TOL = 0.06
 
 
 GLYPHS = {"\u2030": " ", "\u05c0": "T", "\ufb02": "fl", "\ufb01": "fi",
-          "\u200b": "", "\u202f": " ", "\ufffd": ""}
+          "\u200b": "", "\u202f": " ", "\ufffd": "", "\u2711": "\u2022"}
 
 
 def prose(text: str) -> str:
@@ -377,6 +381,13 @@ def build_match(q):
     for e in sorted(prompt_col["items"], key=lambda e: -e["y"]):
         k = min(range(n), key=lambda j: abs(answers[j]["y"] - e["y"]))
         buckets[k].append(clean(e["text"]))
+    # An answer box aligned with the top of its row rather than centered on it
+    # pulls the row's last wrapped line into the row below. The tell is a prompt
+    # left hanging mid-sentence above a row that opens on a lowercase word.
+    for k in range(n - 1):
+        while (buckets.get(k) and len(buckets.get(k + 1, [])) > 1
+               and not END.search(buckets[k][-1]) and buckets[k + 1][0][:1].islower()):
+            buckets[k].append(buckets[k + 1].pop(0))
     if any(not buckets.get(k) for k in range(n)):
         return None
     rows = [{"prompt": " ".join(buckets[k]).strip(), "answer": clean(answers[k]["text"])} for k in range(n)]

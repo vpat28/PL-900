@@ -1967,11 +1967,11 @@
       },
       {
         "label": "G",
-        "text": "ales representatives need to see different view"
+        "text": "Sales representatives need to see different views"
       },
       {
         "label": "H",
-        "text": "nd dashboards in the sales app"
+        "text": "and dashboards in the sales app."
       },
       {
         "label": "I",
@@ -1994,8 +1994,8 @@
         "Canvas app",
         "Power Apps Portals",
         "Common Data Service",
-        "ales representatives need to see different view",
-        "nd dashboards in the sales app",
+        "Sales representatives need to see different views",
+        "and dashboards in the sales app.",
         "Model-driven app"
       ],
       "statements": [],
@@ -2063,14 +2063,14 @@
               "h": 0.05143
             },
             {
-              "text": "ales representatives need to see different view",
+              "text": "Sales representatives need to see different views",
               "x": 0.09765,
               "y": 0.27066,
               "w": 0.523,
               "h": 0.1236
             },
             {
-              "text": "nd dashboards in the sales app",
+              "text": "and dashboards in the sales app.",
               "x": 0.0979,
               "y": 0.25714,
               "w": 0.34266,
@@ -2164,14 +2164,14 @@
               "h": 0.06857
             },
             {
-              "text": "ales representatives need to see different view",
+              "text": "Sales representatives need to see different views",
               "x": 0.09324,
               "y": 0.32571,
               "w": 0.53147,
               "h": 0.05714
             },
             {
-              "text": "nd dashboards in the sales app",
+              "text": "and dashboards in the sales app.",
               "x": 0.09313,
               "y": 0.25658,
               "w": 0.35239,
@@ -2716,7 +2716,7 @@
               "h": 0.11111
             },
             {
-              "text": "reate test and production copies",
+              "text": "Create test and production copies",
               "x": 0.33333,
               "y": 0.1713,
               "w": 0.36667,
@@ -3044,7 +3044,7 @@
               "h": 0.06748
             },
             {
-              "text": "ng Azure Cognitive Services and then adds the appropriate",
+              "text": "using Azure Cognitive Services and then adds the appropriate",
               "x": 0.05,
               "y": 0.45706,
               "w": 0.62083,
@@ -3890,19 +3890,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "separate environments"
+        "text": "Separate environments"
       },
       {
         "label": "B",
-        "text": "separate tenants"
+        "text": "Separate tenants"
       },
       {
         "label": "C",
-        "text": "separate Microsoft Azure Storage Blobs"
+        "text": "Separate Microsoft Azure Storage Blobs"
       },
       {
         "label": "D",
-        "text": "separate connectors"
+        "text": "Separate connectors"
       }
     ],
     "correct": [
@@ -5061,7 +5061,7 @@
               "h": 0.07692
             },
             {
-              "text": "ommon Data Service environment from the Power",
+              "text": "Common Data Service environment from the Power",
               "x": 0.20417,
               "y": 0.10839,
               "w": 0.5875,
@@ -5085,23 +5085,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "linear regression"
+        "text": "Linear regression"
       },
       {
         "label": "B",
-        "text": "prediction"
+        "text": "Prediction"
       },
       {
         "label": "C",
-        "text": "object detection"
+        "text": "Object detection"
       },
       {
         "label": "D",
-        "text": "anomaly detection"
+        "text": "Anomaly detection"
       },
       {
         "label": "E",
-        "text": "text classification"
+        "text": "Text classification"
       }
     ],
     "correct": [
@@ -6733,7 +6733,7 @@
       ],
       "statements": [
         "You can use a text classification model in Al Builder to retrieve text",
-        "and perform sentiment analysist for ServiceNow incidents.",
+        "and perform sentiment analysis for ServiceNow incidents.",
         "You can tag Instagram posts that mention your new product.",
         "You can send results about the number of mentions of your new",
         "product in Instagram to Power Bl for inclusion on a dashboard."
@@ -6781,7 +6781,7 @@
               "h": 0.06358
             },
             {
-              "text": "and perform sentiment analysist for ServiceNow incidents.",
+              "text": "and perform sentiment analysis for ServiceNow incidents.",
               "x": 0.00417,
               "y": 0.42708,
               "w": 0.63333,
@@ -6854,7 +6854,7 @@
               "h": 0.0578
             },
             {
-              "text": "and perform sentiment analysist for ServiceNow incidents.",
+              "text": "and perform sentiment analysis for ServiceNow incidents.",
               "x": 0.0,
               "y": 0.41618,
               "w": 0.63333,
@@ -7675,15 +7675,15 @@
     "choices": [
       {
         "label": "A",
-        "text": "demo website"
+        "text": "Demo website"
       },
       {
         "label": "B",
-        "text": "live production website"
+        "text": "Live production website"
       },
       {
         "label": "C",
-        "text": "test chat feature"
+        "text": "Test chat feature"
       }
     ],
     "correct": [
@@ -9254,7 +9254,7 @@
       "statements": [
         "The Power BI published app is stored within the Team site so",
         "that others can install it.",
-        "One of the other project managers installs and modifiers a",
+        "One of the other project managers installs and modifies a",
         "dashboard within the Power BI published app. The changes",
         "are automatically made into the original published app."
       ],
@@ -9308,7 +9308,7 @@
               "h": 0.08148
             },
             {
-              "text": "One of the other project managers installs and modifiers a",
+              "text": "One of the other project managers installs and modifies a",
               "x": 0.05417,
               "y": 0.22593,
               "w": 0.68333,
@@ -9381,7 +9381,7 @@
               "h": 0.07639
             },
             {
-              "text": "One of the other project managers installs and modifiers a",
+              "text": "One of the other project managers installs and modifies a",
               "x": 0.05385,
               "y": 0.28472,
               "w": 0.66667,
@@ -11692,23 +11692,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "drill-down"
+        "text": "Drill-down"
       },
       {
         "label": "B",
-        "text": "automatic"
+        "text": "Automatic"
       },
       {
         "label": "C",
-        "text": "database"
+        "text": "Database"
       },
       {
         "label": "D",
-        "text": "manual"
+        "text": "Manual"
       },
       {
         "label": "E",
-        "text": "external"
+        "text": "External"
       }
     ],
     "correct": [
@@ -11955,7 +11955,7 @@
       },
       {
         "label": "C",
-        "text": "duplicate the RecReceived page and update the duplicate copy."
+        "text": "duplicate the RevReceived page and update the duplicate copy."
       },
       {
         "label": "D",
@@ -11967,7 +11967,7 @@
       }
     ],
     "correct": [
-      "duplicate the RecReceived page and update the duplicate copy."
+      "duplicate the RevReceived page and update the duplicate copy."
     ],
     "multi": false,
     "question_type": "hotspot",
@@ -11977,7 +11977,7 @@
       "source_items": [
         "You should",
         "modify the RevReceived page",
-        "duplicate the RecReceived page and update the duplicate copy.",
+        "duplicate the RevReceived page and update the duplicate copy.",
         "import the RevReceived page.",
         "copy the visuals from RevReceived to a new page."
       ],
@@ -12011,7 +12011,7 @@
               "h": 0.08661
             },
             {
-              "text": "duplicate the RecReceived page and update the duplicate copy.",
+              "text": "duplicate the RevReceived page and update the duplicate copy.",
               "x": 0.1875,
               "y": 0.40476,
               "w": 0.7375,
@@ -12063,7 +12063,7 @@
               "h": 0.08661
             },
             {
-              "text": "duplicate the RecReceived page and update the duplicate copy.",
+              "text": "duplicate the RevReceived page and update the duplicate copy.",
               "x": 0.1875,
               "y": 0.40476,
               "w": 0.7375,
@@ -12839,19 +12839,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "a custom data connector"
+        "text": "A custom data connector"
       },
       {
         "label": "B",
-        "text": "a published app"
+        "text": "A published app"
       },
       {
         "label": "C",
-        "text": "a Microsoft flow"
+        "text": "A Microsoft flow"
       },
       {
         "label": "D",
-        "text": "a Power BI workspace"
+        "text": "A Power BI workspace"
       }
     ],
     "correct": [
@@ -14052,19 +14052,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "deployment pipelines"
+        "text": "Deployment pipelines"
       },
       {
         "label": "B",
-        "text": "tables"
+        "text": "Tables"
       },
       {
         "label": "C",
-        "text": "columns"
+        "text": "Columns"
       },
       {
         "label": "D",
-        "text": "dashboards"
+        "text": "Dashboards"
       }
     ],
     "correct": [
@@ -14620,19 +14620,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "dashboard"
+        "text": "Dashboard"
       },
       {
         "label": "B",
-        "text": "mobile app"
+        "text": "Mobile app"
       },
       {
         "label": "C",
-        "text": "template app"
+        "text": "Template app"
       },
       {
         "label": "D",
-        "text": "workspace"
+        "text": "Workspace"
       }
     ],
     "correct": [
@@ -15094,7 +15094,7 @@
       ],
       "statements": [
         "You must use standard templates for building portals.",
-        "You can test portals in non-prodcution environments and",
+        "You can test portals in non-production environments and",
         "then migrate the portals into production environments.",
         "When transitioning to the new version of a portal, you can",
         "display a customizable maintenance page until the new",
@@ -15143,7 +15143,7 @@
               "h": 0.07518
             },
             {
-              "text": "You can test portals in non-prodcution environments and",
+              "text": "You can test portals in non-production environments and",
               "x": 0.09429,
               "y": 0.43333,
               "w": 0.70223,
@@ -15216,7 +15216,7 @@
               "h": 0.07518
             },
             {
-              "text": "You can test portals in non-prodcution environments and",
+              "text": "You can test portals in non-production environments and",
               "x": 0.09429,
               "y": 0.43333,
               "w": 0.70223,
@@ -16965,19 +16965,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "application-level"
+        "text": "Application-level"
       },
       {
         "label": "B",
-        "text": "task-level"
+        "text": "Task-level"
       },
       {
         "label": "C",
-        "text": "record-level"
+        "text": "Record-level"
       },
       {
         "label": "D",
-        "text": "field-level"
+        "text": "Field-level"
       }
     ],
     "correct": [
@@ -17928,11 +17928,11 @@
       },
       {
         "label": "G",
-        "text": "Create three Flows that each copy data t"
+        "text": "Create three Flows that each copy data to"
       },
       {
         "label": "H",
-        "text": "Vlicrosoft Azure Data Lake on different schedules."
+        "text": "Microsoft Azure Data Lake on different schedules."
       }
     ],
     "correct": [
@@ -17952,8 +17952,8 @@
         "different proprietary database formats.",
         "Create three Power Apps apps that each display",
         "data from a Microsoft SharePoint list.",
-        "Create three Flows that each copy data t",
-        "Vlicrosoft Azure Data Lake on different schedules."
+        "Create three Flows that each copy data to",
+        "Microsoft Azure Data Lake on different schedules."
       ],
       "statements": [],
       "source_visuals": [
@@ -18055,14 +18055,14 @@
               "h": 0.05479
             },
             {
-              "text": "Create three Flows that each copy data t",
+              "text": "Create three Flows that each copy data to",
               "x": 0.23218,
               "y": 0.07534,
               "w": 0.42989,
               "h": 0.10959
             },
             {
-              "text": "Vlicrosoft Azure Data Lake on different schedules.",
+              "text": "Microsoft Azure Data Lake on different schedules.",
               "x": 0.23448,
               "y": 0.04795,
               "w": 0.51264,
@@ -18128,7 +18128,7 @@
               "h": 0.04605
             },
             {
-              "text": "ynchronize data with three data sources that us",
+              "text": "Synchronize data with three data sources that use",
               "x": 0.21834,
               "y": 0.55921,
               "w": 0.47817,
@@ -18149,7 +18149,7 @@
               "h": 0.05921
             },
             {
-              "text": "litterent proprietarv database tormats",
+              "text": "different proprietary database formats.",
               "x": 0.21834,
               "y": 0.53947,
               "w": 0.37555,
@@ -19085,23 +19085,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "customizations"
+        "text": "Customizations"
       },
       {
         "label": "B",
-        "text": "data sources"
+        "text": "Data sources"
       },
       {
         "label": "C",
-        "text": "actions"
+        "text": "Actions"
       },
       {
         "label": "D",
-        "text": "tables"
+        "text": "Tables"
       },
       {
         "label": "E",
-        "text": "triggers"
+        "text": "Triggers"
       }
     ],
     "correct": [
@@ -20037,19 +20037,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "formula"
+        "text": "Formula"
       },
       {
         "label": "B",
-        "text": "gallery"
+        "text": "Gallery"
       },
       {
         "label": "C",
-        "text": "connector"
+        "text": "Connector"
       },
       {
         "label": "D",
-        "text": "calculated column"
+        "text": "Calculated column"
       }
     ],
     "correct": [
@@ -20217,23 +20217,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "a customer support website that includes knowledgebase search and support for document uploads"
+        "text": "A customer support website that includes knowledgebase search and support for document uploads"
       },
       {
         "label": "B",
-        "text": "a public website that supports multilingual communities with forums and blogs support"
+        "text": "A public website that supports multilingual communities with forums and blogs support"
       },
       {
         "label": "C",
-        "text": "a secure website for mobile users that is available only by using a VPN into the corporate network"
+        "text": "A secure website for mobile users that is available only by using a VPN into the corporate network"
       },
       {
         "label": "D",
-        "text": "a secure website for vendors accessing data stored in Common Data Service"
+        "text": "A secure website for vendors accessing data stored in Common Data Service"
       },
       {
         "label": "E",
-        "text": "an internal website for employees with limited access to Dynamics 365 Finance data"
+        "text": "An internal website for employees with limited access to Dynamics 365 Finance data"
       }
     ],
     "correct": [
@@ -21856,23 +21856,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "a process argument"
+        "text": "A process argument"
       },
       {
         "label": "B",
-        "text": "a condition"
+        "text": "A condition"
       },
       {
         "label": "C",
-        "text": "an expression"
+        "text": "An expression"
       },
       {
         "label": "D",
-        "text": "a trigger"
+        "text": "A trigger"
       },
       {
         "label": "E",
-        "text": "a solution"
+        "text": "A solution"
       }
     ],
     "correct": [
@@ -22337,23 +22337,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "plug-in"
+        "text": "Plug-in"
       },
       {
         "label": "B",
-        "text": "approval flow"
+        "text": "Approval flow"
       },
       {
         "label": "C",
-        "text": "business rule"
+        "text": "Business rule"
       },
       {
         "label": "D",
-        "text": "team flow"
+        "text": "Team flow"
       },
       {
         "label": "E",
-        "text": "scheduled flow"
+        "text": "Scheduled flow"
       }
     ],
     "correct": [
@@ -25579,7 +25579,7 @@
               "h": 0.11702
             },
             {
-              "text": "(ou must create an automatic flow to launch a flow when a user",
+              "text": "You must create an automatic flow to launch a flow when a user",
               "x": 0.1625,
               "y": 0.12234,
               "w": 0.65,
@@ -26839,19 +26839,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "key phrase extraction"
+        "text": "Key phrase extraction"
       },
       {
         "label": "B",
-        "text": "sentiment analysis"
+        "text": "Sentiment analysis"
       },
       {
         "label": "C",
-        "text": "text recognition"
+        "text": "Text recognition"
       },
       {
         "label": "D",
-        "text": "language detection"
+        "text": "Language detection"
       }
     ],
     "correct": [
@@ -27079,19 +27079,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "expression"
+        "text": "Expression"
       },
       {
         "label": "B",
-        "text": "condition"
+        "text": "Condition"
       },
       {
         "label": "C",
-        "text": "action"
+        "text": "Action"
       },
       {
         "label": "D",
-        "text": "trigger"
+        "text": "Trigger"
       }
     ],
     "correct": [
@@ -27320,23 +27320,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "when a record is displayed in a view"
+        "text": "When a record is displayed in a view"
       },
       {
         "label": "B",
-        "text": "when a record is deleted"
+        "text": "When a record is deleted"
       },
       {
         "label": "C",
-        "text": "when a record is created"
+        "text": "When a record is created"
       },
       {
         "label": "D",
-        "text": "when a record is updated"
+        "text": "When a record is updated"
       },
       {
         "label": "E",
-        "text": "when a record is read"
+        "text": "When a record is read"
       }
     ],
     "correct": [
@@ -29021,19 +29021,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "customizations"
+        "text": "Customizations"
       },
       {
         "label": "B",
-        "text": "actions"
+        "text": "Actions"
       },
       {
         "label": "C",
-        "text": "tables"
+        "text": "Tables"
       },
       {
         "label": "D",
-        "text": "triggers"
+        "text": "Triggers"
       }
     ],
     "correct": [
@@ -29905,10 +29905,10 @@
         "No"
       ],
       "statements": [
-        "You can use the prebuilt Postal Code entity to recommend plants that o",
+        "You can use the prebuilt Postal Code entity to recommend plants that",
         "will work within a customer's growing zone.",
-        "ou can create a custom entity to offer color and plant choices for",
-        "andscaping options that can be made available for customer orders."
+        "You can create a custom entity to offer color and plant choices for",
+        "landscaping options that can be made available for customer orders."
       ],
       "source_visuals": [
         {
@@ -29946,7 +29946,7 @@
               "h": 0.07742
             },
             {
-              "text": "You can use the prebuilt Postal Code entity to recommend plants that o",
+              "text": "You can use the prebuilt Postal Code entity to recommend plants that",
               "x": 0.0,
               "y": 0.38636,
               "w": 0.82917,
@@ -29960,14 +29960,14 @@
               "h": 0.10898
             },
             {
-              "text": "ou can create a custom entity to offer color and plant choices for",
+              "text": "You can create a custom entity to offer color and plant choices for",
               "x": 0.025,
               "y": 0.13548,
               "w": 0.72917,
               "h": 0.11452
             },
             {
-              "text": "andscaping options that can be made available for customer orders.",
+              "text": "landscaping options that can be made available for customer orders.",
               "x": 0.02917,
               "y": 0.04516,
               "w": 0.75833,
@@ -30012,7 +30012,7 @@
               "h": 0.07742
             },
             {
-              "text": "You can use the prebuilt Postal Code entity to recommend plants that o",
+              "text": "You can use the prebuilt Postal Code entity to recommend plants that",
               "x": 0.0,
               "y": 0.38636,
               "w": 0.82917,
@@ -30026,14 +30026,14 @@
               "h": 0.09032
             },
             {
-              "text": "ou can create a custom entity to offer color and plant choices for",
+              "text": "You can create a custom entity to offer color and plant choices for",
               "x": 0.025,
               "y": 0.13548,
               "w": 0.72917,
               "h": 0.11452
             },
             {
-              "text": "andscaping options that can be made available for customer orders.",
+              "text": "landscaping options that can be made available for customer orders.",
               "x": 0.02917,
               "y": 0.04516,
               "w": 0.75833,
@@ -31725,6 +31725,7 @@
     ],
     "correct": [
       "Yes",
+      "No",
       "Yes"
     ],
     "multi": true,
@@ -31737,8 +31738,8 @@
         "No"
       ],
       "statements": [
-        "Custom connectors use public or private APls to connect to external sources. O",
-        "You cannot use custom connectors in Power Automate",
+        "Custom connectors use public or private APIs to connect to external sources.",
+        "You cannot use custom connectors in Power Automate.",
         "Component operations of a connector can be an action or a trigger."
       ],
       "source_visuals": [
@@ -31777,7 +31778,7 @@
               "h": 0.06557
             },
             {
-              "text": "Custom connectors use public or private APls to connect to external sources. O",
+              "text": "Custom connectors use public or private APIs to connect to external sources.",
               "x": 0.01196,
               "y": 0.49119,
               "w": 0.84538,
@@ -31791,7 +31792,7 @@
               "h": 0.08197
             },
             {
-              "text": "You cannot use custom connectors in Power Automate",
+              "text": "You cannot use custom connectors in Power Automate.",
               "x": 0.0152,
               "y": 0.29508,
               "w": 0.57447,
@@ -31843,7 +31844,7 @@
               "h": 0.06667
             },
             {
-              "text": "Custom connectors use public or private APls to connect to external sources.",
+              "text": "Custom connectors use public or private APIs to connect to external sources.",
               "x": 0.01246,
               "y": 0.50833,
               "w": 0.80062,
@@ -32928,7 +32929,7 @@
               "h": 0.0926
             },
             {
-              "text": "Evaluate solutions that meet current gaps in Power B",
+              "text": "Evaluate solutions that meet current gaps in Power BI",
               "x": 0.3968,
               "y": 0.50413,
               "w": 0.30669,
@@ -33022,7 +33023,7 @@
               "h": 0.12698
             },
             {
-              "text": "Evaluate solutions that meet current gaps in Power Bi",
+              "text": "Evaluate solutions that meet current gaps in Power BI",
               "x": 0.39211,
               "y": 0.52381,
               "w": 0.31053,
@@ -33050,7 +33051,7 @@
               "h": 0.14682
             },
             {
-              "text": "valuate the services of multiple companies to identify",
+              "text": "Evaluate the services of multiple companies to identify a",
               "x": 0.4,
               "y": 0.28571,
               "w": 0.31316,
@@ -33064,7 +33065,7 @@
               "h": 0.12698
             },
             {
-              "text": "artner that can assist in building a proof-of-concep",
+              "text": "partner that can assist in building a proof-of-concept",
               "x": 0.40263,
               "y": 0.22222,
               "w": 0.29474,
@@ -33616,23 +33617,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "welcome"
+        "text": "Welcome"
       },
       {
         "label": "B",
-        "text": "edit/create"
+        "text": "Edit/create"
       },
       {
         "label": "C",
-        "text": "browse"
+        "text": "Browse"
       },
       {
         "label": "D",
-        "text": "details"
+        "text": "Details"
       },
       {
         "label": "E",
-        "text": "delete"
+        "text": "Delete"
       }
     ],
     "correct": [
@@ -34508,19 +34509,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "condition"
+        "text": "Condition"
       },
       {
         "label": "B",
-        "text": "switch"
+        "text": "Switch"
       },
       {
         "label": "C",
-        "text": "environment variable"
+        "text": "Environment variable"
       },
       {
         "label": "D",
-        "text": "expression"
+        "text": "Expression"
       }
     ],
     "correct": [
@@ -36802,19 +36803,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "automated cloud"
+        "text": "Automated cloud"
       },
       {
         "label": "B",
-        "text": "business process"
+        "text": "Business process"
       },
       {
         "label": "C",
-        "text": "desktop"
+        "text": "Desktop"
       },
       {
         "label": "D",
-        "text": "instant cloud"
+        "text": "Instant cloud"
       }
     ],
     "correct": [
@@ -36990,19 +36991,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "share"
+        "text": "Share"
       },
       {
         "label": "B",
-        "text": "edit"
+        "text": "Edit"
       },
       {
         "label": "C",
-        "text": "publish"
+        "text": "Publish"
       },
       {
         "label": "D",
-        "text": "train"
+        "text": "Train"
       }
     ],
     "correct": [
@@ -37071,7 +37072,7 @@
       }
     ],
     "correct": [
-      "Fom",
+      "Form",
       "List"
     ],
     "multi": true,
@@ -37204,7 +37205,7 @@
               "h": 0.15789
             },
             {
-              "text": "Fom",
+              "text": "Form",
               "x": 0.78543,
               "y": 0.40351,
               "w": 0.06883,
@@ -39223,7 +39224,7 @@
               "h": 0.03704
             },
             {
-              "text": "unigger phrase",
+              "text": "Trigger phrase",
               "x": 0.69231,
               "y": 0.63889,
               "w": 0.18269,
@@ -39244,7 +39245,7 @@
               "h": 0.03704
             },
             {
-              "text": "(Show a message node",
+              "text": "Show a message node",
               "x": 0.69231,
               "y": 0.47222,
               "w": 0.26923,
@@ -39509,7 +39510,7 @@
               "h": 0.06494
             },
             {
-              "text": "You can trigger a Power Automate flow when you upload a Microsoft Excel orD",
+              "text": "You can trigger a Power Automate flow when you upload a Microsoft Excel or",
               "x": 0.05096,
               "y": 0.55844,
               "w": 0.81316,
@@ -42166,7 +42167,7 @@
               "h": 0.10909
             },
             {
-              "text": "tomatically send a reminder at 8 PM",
+              "text": "Automatically send a reminder at 8 PM",
               "x": 0.05172,
               "y": 0.11818,
               "w": 0.50862,
@@ -42180,7 +42181,7 @@
               "h": 0.08182
             },
             {
-              "text": "ased on a missing status report.",
+              "text": "based on a missing status report.",
               "x": 0.04741,
               "y": 0.05455,
               "w": 0.43534,
@@ -42197,19 +42198,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "column"
+        "text": "Column"
       },
       {
         "label": "B",
-        "text": "relationship"
+        "text": "Relationship"
       },
       {
         "label": "C",
-        "text": "dataflow"
+        "text": "Dataflow"
       },
       {
         "label": "D",
-        "text": "table"
+        "text": "Table"
       }
     ],
     "correct": [
@@ -42599,14 +42600,14 @@
               "h": 0.12308
             },
             {
-              "text": "ladding data to the model",
+              "text": "adding data to the model",
               "x": 0.45794,
               "y": 0.4,
               "w": 0.2243,
               "h": 0.12308
             },
             {
-              "text": "trading microsuit Dataverse to the environment",
+              "text": "adding Microsoft Dataverse to the environment",
               "x": 0.46729,
               "y": 0.27692,
               "w": 0.38941,
@@ -42637,19 +42638,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "screen"
+        "text": "Screen"
       },
       {
         "label": "B",
-        "text": "connector"
+        "text": "Connector"
       },
       {
         "label": "C",
-        "text": "formula"
+        "text": "Formula"
       },
       {
         "label": "D",
-        "text": "control"
+        "text": "Control"
       }
     ],
     "correct": [
@@ -43255,7 +43256,7 @@
     ],
     "multi": true,
     "question_type": "hotspot",
-    "explanation": "CompanyHolidays Gallery.\nPlay.\nFormula.",
+    "explanation": "CompanyHolidaysGallery.\nPlay.\nFormula.",
     "topic": "Power Apps",
     "interaction": {
       "source_items": [
@@ -43456,14 +43457,14 @@
               "h": 0.04167
             },
             {
-              "text": "Company Holidays Gallery",
+              "text": "CompanyHolidaysGallery",
               "x": 0.61314,
               "y": 0.61979,
               "w": 0.35766,
               "h": 0.05729
             },
             {
-              "text": "Holidays_!",
+              "text": "Holidays_1",
               "x": 0.62409,
               "y": 0.56771,
               "w": 0.15693,
@@ -43498,7 +43499,7 @@
               "h": 0.05611
             },
             {
-              "text": "(Play",
+              "text": "Play",
               "x": 0.61314,
               "y": 0.31771,
               "w": 0.09854,
@@ -43538,6 +43539,13 @@
               "y": 0.02604,
               "w": 0.16058,
               "h": 0.04167
+            },
+            {
+              "text": "control",
+              "x": 0.6387,
+              "y": 0.0729,
+              "w": 0.0912,
+              "h": 0.0469
             }
           ]
         }
@@ -44019,7 +44027,7 @@
               "h": 0.09091
             },
             {
-              "text": "Teachers cares the canvasappy sidestorand mobile",
+              "text": "Teachers can access the canvas app by using desktops and mobile",
               "x": 0.01603,
               "y": 0.69318,
               "w": 0.69551,
@@ -44305,19 +44313,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "key performance indicator (KPI) analysis"
+        "text": "Key performance indicator (KPI) analysis"
       },
       {
         "label": "B",
-        "text": "significant anomaly"
+        "text": "Significant anomaly"
       },
       {
         "label": "C",
-        "text": "trend reversal"
+        "text": "Trend reversal"
       },
       {
         "label": "D",
-        "text": "recent trend"
+        "text": "Recent trend"
       }
     ],
     "correct": [
@@ -44986,7 +44994,7 @@
               "h": 0.08605
             },
             {
-              "text": "i Power Automate cloud flov",
+              "text": "a Power Automate cloud flow.",
               "x": 0.5559,
               "y": 0.26667,
               "w": 0.3323,
@@ -47840,18 +47848,32 @@
               "h": 0.19149
             },
             {
-              "text": "Dashboards are created inside workspoces.",
+              "text": "Dashboards are created inside workspaces.",
               "x": -0.00218,
               "y": 0.09807,
               "w": 0.52705,
               "h": 0.39156
             },
             {
-              "text": "an choose to pin an entire report page to your dashboard.",
+              "text": "You can choose to pin an entire report page to your dashboard.",
               "x": 0.0829,
               "y": 0.08511,
               "w": 0.68394,
               "h": 0.12766
+            },
+            {
+              "text": "Statement",
+              "x": 0.0,
+              "y": 0.5957,
+              "w": 0.1503,
+              "h": 0.234
+            },
+            {
+              "text": "No",
+              "x": 0.9223,
+              "y": 0.617,
+              "w": 0.0518,
+              "h": 0.1489
             }
           ]
         }
@@ -48976,19 +48998,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "tenant"
+        "text": "Tenant"
       },
       {
         "label": "B",
-        "text": "row"
+        "text": "Row"
       },
       {
         "label": "C",
-        "text": "environment"
+        "text": "Environment"
       },
       {
         "label": "D",
-        "text": "column"
+        "text": "Column"
       }
     ],
     "correct": [
@@ -49524,19 +49546,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "security role"
+        "text": "Security role"
       },
       {
         "label": "B",
-        "text": "dataflow"
+        "text": "Dataflow"
       },
       {
         "label": "C",
-        "text": "business rule"
+        "text": "Business rule"
       },
       {
         "label": "D",
-        "text": "data loss prevention policy"
+        "text": "Data loss prevention policy"
       }
     ],
     "correct": [
