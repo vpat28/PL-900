@@ -139,7 +139,7 @@ that geometry back into a widget:
 | `multiple_choice`, `multiple_select` | `choice` | `choices` / `correct` directly |
 | `hotspot_yes_no` | `yesno` | statement lines above the "Statement" column header, grouped into whole sentences |
 | `hotspot` | `dropdown` | the option column (the widest x-cluster), split into runs at the largest vertical gaps — one run per dropdown |
-| `drag_and_drop` | `match` | answer texts anchored in the right column, prompts assigned to the nearest anchor, pool taken from the columns left of the prompts |
+| `drag_and_drop` | `match` | answer texts anchored in the right column, prompts assigned to the nearest anchor then re-flowed across row boundaries, pool taken from the columns left of the prompts |
 | `drag_and_drop_ordering` | `order` | `correct` is already the sequence; the pool is the action list |
 
 Two ideas hold the reconstruction together:
@@ -319,12 +319,37 @@ The PDF is in the repo, so any claim here can be re-checked.
   back to a plain multi-select because their answer-area geometry could not be
   read as a table — several of those are pictures of app screenshots rather
   than tables, and their wording is rough. Seven are Yes/No questions where the
-  number of statements and the number of recorded answers disagree; extra rows
-  are shown but not graded, and the note says so.
+  number of statements and the number of recorded answers disagree: four have
+  more statements than answers, so the extra rows are shown but not graded, and
+  three have fewer, so some statements did not survive extraction. The note
+  says which.
+- **One answer key was wrong and the OCR was hiding it.** In the custom-connector
+  Yes/No question, a missing period ran statements 2 and 3 together, so the bank
+  recorded two answers for what the image shows as three statements — and graded
+  "You cannot use custom connectors in Power Automate" as Yes. The marks in the
+  answer image read Yes / No / Yes; `correct` now says so. Treat any Yes/No
+  question whose statement count looks short as a candidate for the same fault.
+- **Choice sets the dump lowercased have been recased** to sentence case: 26
+  questions in Full, 15 in Focused, where *every* choice began lowercase
+  (`A.welcome`, `B.edit/create`). Grading is unaffected — comparison runs
+  through `nrm()`/`same()`, which is case-insensitive.
 - **OCR confusions are corrected mechanically**, not by reading: `Al` → `AI`,
-  `Power Bl` → `Power BI`, `Ul` → `UI`, `PowerApps` → `Power Apps`, plus a few
-  glyph substitutions. Wrong-looking option text that survives these is real
-  OCR damage in the source.
+  `Power Bl`/`Power Bi` → `Power BI`, `Ul` → `UI`, `APls` → `APIs`, `PowerApps`
+  → `Power Apps`, plus the glyph substitutions in `GLYPHS` (`✑` → `•`, a digit
+  and its orphaned enclosing keycap → `N.`, `‰`/`׀`/`ﬁ`/`ﬂ` and the invisible
+  spaces).
+- **The answer-area text has been checked against the source images.** The two
+  visuals per question are not equally good: the *answer* visual is the
+  marked-up copy and OCRs far worse than the clean *source* visual, and
+  `visual()` prefers the answer visual because that is where the geometry of a
+  filled-in row lives. Around eighteen questions had text only that copy got
+  wrong — dropped leading characters (`ommon`, `reate`, `ou`, `ased`), whole
+  mangled sentences (`Teachers cares the canvasappy sidestorand mobile`), and
+  in two cases an option OCR missed entirely. Each was re-read from the
+  extracted JPEG and corrected in `interaction`. If you re-run
+  `build_questions.py`, these corrections are overwritten and must be redone.
+  Wrong-looking option text that survives all of this is either real damage in
+  the source image or, as often, a typo the dump itself prints.
 - **Explanations were extracted from the same dump as the answers.** An
   explanation is *not* independent confirmation of its answer. Where the two
   disagree, trust neither until you have checked Microsoft Learn. Several
@@ -349,14 +374,15 @@ The PDF is in the repo, so any claim here can be re-checked.
   because their statements or answers differ, so they are distinct questions
   sharing a boilerplate stem. It builds clean: 230 in, 230 rendered, 9 flagged
   for review.
-- **Two leftovers from the rename pass in Focused**, both cosmetic and neither
-  in an answer: 11 occurrences of "a agent" where "an agent" is meant, and one
-  surviving "Power Virtual Agents" in the explanation of the ticketing-app
-  question. That one hid because the dump wrote it with narrow no-break spaces
-  (`Power\u202fVirtual\u202fAgents`), so a plain search for the phrase misses
-  it — `prose()` normalizes those to ordinary spaces at build time, which is
-  why it shows up on the page but not in a grep of the JSON. Search the baked
-  bank, not the source, when checking whether a term is really gone.
+- **The rename pass in Focused is complete**: no "a agent", no "Power Virtual
+  Agents", no "Common Data Service". The last three hid from earlier greps for
+  different reasons, and each is a trap worth knowing. "Power Virtual Agents"
+  was written with narrow no-break spaces (`Power\u202fVirtual\u202fAgents`),
+  which `prose()` normalizes at build time — so it showed on the page but not
+  in a grep of the JSON. "Common Data Service" survived inside an answer-area
+  element as `ommon Data Service`, below the threshold of any search for the
+  real phrase. Search the *baked* bank, not the source, when checking whether a
+  term is really gone.
 
 ---
 

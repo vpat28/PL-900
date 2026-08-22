@@ -388,11 +388,11 @@
       },
       {
         "label": "G",
-        "text": "ales representatives need to see different view"
+        "text": "Sales representatives need to see different views"
       },
       {
         "label": "H",
-        "text": "nd dashboards in the sales app"
+        "text": "and dashboards in the sales app."
       },
       {
         "label": "I",
@@ -415,8 +415,8 @@
         "Canvas app",
         "Power Pages sites",
         "Microsoft Dataverse",
-        "ales representatives need to see different view",
-        "nd dashboards in the sales app",
+        "Sales representatives need to see different views",
+        "and dashboards in the sales app.",
         "Model-driven app"
       ],
       "statements": [],
@@ -484,14 +484,14 @@
               "h": 0.05143
             },
             {
-              "text": "ales representatives need to see different view",
+              "text": "Sales representatives need to see different views",
               "x": 0.09765,
               "y": 0.27066,
               "w": 0.523,
               "h": 0.1236
             },
             {
-              "text": "nd dashboards in the sales app",
+              "text": "and dashboards in the sales app.",
               "x": 0.0979,
               "y": 0.25714,
               "w": 0.34266,
@@ -585,14 +585,14 @@
               "h": 0.06857
             },
             {
-              "text": "ales representatives need to see different view",
+              "text": "Sales representatives need to see different views",
               "x": 0.09324,
               "y": 0.32571,
               "w": 0.53147,
               "h": 0.05714
             },
             {
-              "text": "nd dashboards in the sales app",
+              "text": "and dashboards in the sales app.",
               "x": 0.09313,
               "y": 0.25658,
               "w": 0.35239,
@@ -1137,7 +1137,7 @@
               "h": 0.11111
             },
             {
-              "text": "reate test and production copies",
+              "text": "Create test and production copies",
               "x": 0.33333,
               "y": 0.1713,
               "w": 0.36667,
@@ -1319,7 +1319,7 @@
               "h": 0.06748
             },
             {
-              "text": "ng Azure Cognitive Services and then adds the appropriate",
+              "text": "using Azure Cognitive Services and then adds the appropriate",
               "x": 0.05,
               "y": 0.45706,
               "w": 0.62083,
@@ -2165,19 +2165,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "separate environments"
+        "text": "Separate environments"
       },
       {
         "label": "B",
-        "text": "separate tenants"
+        "text": "Separate tenants"
       },
       {
         "label": "C",
-        "text": "separate Microsoft Azure Storage Blobs"
+        "text": "Separate Microsoft Azure Storage Blobs"
       },
       {
         "label": "D",
-        "text": "separate connectors"
+        "text": "Separate connectors"
       }
     ],
     "correct": [
@@ -2357,7 +2357,7 @@
     }
   },
   {
-    "q": "A company uses Dynamics 365 Sales.\nYou have the following requirements:\n* View analytics on accounts.\n* The model-driven app must automatically send an approval form to a manager when the purchase price is greater than $10,000.\n* Create a agent for the webpage to interact with customer questions.\nYou must use Microsoft Power Platform to extend the capabilities of Dynamics 365 Sales.\nYou need to select an application for each requirement.\nWhich application should you use? To answer, drag the appropriate application to the correct requirement. Each application may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.\nNOTE: Each correct selection is worth one point.",
+    "q": "A company uses Dynamics 365 Sales.\nYou have the following requirements:\n* View analytics on accounts.\n* The model-driven app must automatically send an approval form to a manager when the purchase price is greater than $10,000.\n* Create an agent for the webpage to interact with customer questions.\nYou must use Microsoft Power Platform to extend the capabilities of Dynamics 365 Sales.\nYou need to select an application for each requirement.\nWhich application should you use? To answer, drag the appropriate application to the correct requirement. Each application may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.\nNOTE: Each correct selection is worth one point.",
     "choices": [
       {
         "label": "A",
@@ -3137,7 +3137,7 @@
               "h": 0.07692
             },
             {
-              "text": "ommon Data Service environment from the Power",
+              "text": "Microsoft Dataverse environment from the Power",
               "x": 0.20417,
               "y": 0.10839,
               "w": 0.5875,
@@ -4911,15 +4911,15 @@
     "choices": [
       {
         "label": "A",
-        "text": "demo website"
+        "text": "Demo website"
       },
       {
         "label": "B",
-        "text": "live production website"
+        "text": "Live production website"
       },
       {
         "label": "C",
-        "text": "test chat feature"
+        "text": "Test chat feature"
       }
     ],
     "correct": [
@@ -4927,7 +4927,7 @@
     ],
     "multi": false,
     "question_type": "multiple_choice",
-    "explanation": "The correct answer is A, demo website.\nHere's why:\nWhen developing a Microsoft Copilot Studio agent, you need a way to test and refine it before public release.\nSharing the agent with internal team members for feedback is a crucial step. Microsoft Copilot Studio provides a \"demo website\" specifically for this purpose.\nDemo Website Functionality: The demo website creates a unique URL that you can share with your team. This URL allows them to interact with the agent within a web browser environment without affecting the live production agent. The interface mimics the end-user experience, providing a realistic testing scenario. It allows for isolated testing, so changes on the demo website don't impact the production version.\nWhy not a live production website?: A \"live production website\" is where the final, customer-facing version of the agent resides. Using it for internal testing before wider release risks exposing unfinished or buggy versions to actual users, leading to a poor user experience and potential reputational damage. This is why it's critical to have a separate testing environment.\nWhy not the \"test chat\" feature alone?: While the \"Test chat\" pane within the Microsoft Copilot Studio design canvas is useful for individual testing and debugging, it doesn't readily facilitate sharing with a wider team for collaborative feedback. The demo website offers a more accessible and shareable method.\nBest Practice: Utilizing a demo website aligns with the best practices of software development and continuous integration/continuous delivery (CI/CD). It allows for controlled testing, feedback gathering, and iterative improvement before deploying the final product.\nIn summary, the demo website is the ideal solution because it creates a controlled, shareable environment specifically designed for internal team testing of a Microsoft Copilot Studio agent before its public launch. It balances testing with a realistic environment without affecting end users.\nAuthoritative Links:\nPublish a agent - Microsoft Copilot Studio: https://learn.microsoft.com/en-us/power-virtual-agents/publication- connect-channels (While this document focuses on publishing, it indirectly highlights the importance of separate testing, as connecting channels happens after the agent is deemed ready)\nTest and publish your agent: https://learn.microsoft.com/en-us/power-virtual-agents/test-publish-agent (This article details the testing capabilities within PVA)",
+    "explanation": "The correct answer is A, demo website.\nHere's why:\nWhen developing a Microsoft Copilot Studio agent, you need a way to test and refine it before public release.\nSharing the agent with internal team members for feedback is a crucial step. Microsoft Copilot Studio provides a \"demo website\" specifically for this purpose.\nDemo Website Functionality: The demo website creates a unique URL that you can share with your team. This URL allows them to interact with the agent within a web browser environment without affecting the live production agent. The interface mimics the end-user experience, providing a realistic testing scenario. It allows for isolated testing, so changes on the demo website don't impact the production version.\nWhy not a live production website?: A \"live production website\" is where the final, customer-facing version of the agent resides. Using it for internal testing before wider release risks exposing unfinished or buggy versions to actual users, leading to a poor user experience and potential reputational damage. This is why it's critical to have a separate testing environment.\nWhy not the \"test chat\" feature alone?: While the \"Test chat\" pane within the Microsoft Copilot Studio design canvas is useful for individual testing and debugging, it doesn't readily facilitate sharing with a wider team for collaborative feedback. The demo website offers a more accessible and shareable method.\nBest Practice: Utilizing a demo website aligns with the best practices of software development and continuous integration/continuous delivery (CI/CD). It allows for controlled testing, feedback gathering, and iterative improvement before deploying the final product.\nIn summary, the demo website is the ideal solution because it creates a controlled, shareable environment specifically designed for internal team testing of a Microsoft Copilot Studio agent before its public launch. It balances testing with a realistic environment without affecting end users.\nAuthoritative Links:\nPublish an agent - Microsoft Copilot Studio: https://learn.microsoft.com/en-us/power-virtual-agents/publication- connect-channels (While this document focuses on publishing, it indirectly highlights the importance of separate testing, as connecting channels happens after the agent is deemed ready)\nTest and publish your agent: https://learn.microsoft.com/en-us/power-virtual-agents/test-publish-agent (This article details the testing capabilities within PVA)",
     "topic": "Microsoft Copilot Studio"
   },
   {
@@ -5097,7 +5097,7 @@
     }
   },
   {
-    "q": "Your company wants to create a help desk system and implement Dynamics 365 Customer Service.\nThe company has the following requirements:\n✑ Provide an application to allow support team staff to chat live with a customer.\n✑ Automatically import data from a Microsoft Excel spreadsheet once a day.\n✑ Provide a agent that can assist customers who need support.\nYou need to determine which applications to use to meet the requirements.\nWhich applications should you use? To answer, select the appropriate options in the answer area.\nNOTE: Each correct selection is worth one point.",
+    "q": "Your company wants to create a help desk system and implement Dynamics 365 Customer Service.\nThe company has the following requirements:\n✑ Provide an application to allow support team staff to chat live with a customer.\n✑ Automatically import data from a Microsoft Excel spreadsheet once a day.\n✑ Provide an agent that can assist customers who need support.\nYou need to determine which applications to use to meet the requirements.\nWhich applications should you use? To answer, select the appropriate options in the answer area.\nNOTE: Each correct selection is worth one point.",
     "choices": [
       {
         "label": "A",
@@ -5129,7 +5129,7 @@
       },
       {
         "label": "H",
-        "text": "Provide a agent that can assist customers who"
+        "text": "Provide an agent that can assist customers who"
       },
       {
         "label": "I",
@@ -5157,7 +5157,7 @@
         "Azure Data Lake",
         "Power Automate",
         "Power BI",
-        "Provide a agent that can assist customers who",
+        "Provide an agent that can assist customers who",
         "need support.",
         "Microsoft Copilot Studio"
       ],
@@ -5233,7 +5233,7 @@
               "h": 0.06322
             },
             {
-              "text": "Provide a agent that can assist customers who",
+              "text": "Provide an agent that can assist customers who",
               "x": 0.06069,
               "y": 0.21264,
               "w": 0.56201,
@@ -5334,7 +5334,7 @@
               "h": 0.05747
             },
             {
-              "text": "Provide a agent that can assist customers who",
+              "text": "Provide an agent that can assist customers who",
               "x": 0.06069,
               "y": 0.21264,
               "w": 0.56201,
@@ -6785,19 +6785,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "application-level"
+        "text": "Application-level"
       },
       {
         "label": "B",
-        "text": "task-level"
+        "text": "Task-level"
       },
       {
         "label": "C",
-        "text": "record-level"
+        "text": "Record-level"
       },
       {
         "label": "D",
-        "text": "field-level"
+        "text": "Field-level"
       }
     ],
     "correct": [
@@ -7819,23 +7819,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "customizations"
+        "text": "Customizations"
       },
       {
         "label": "B",
-        "text": "data sources"
+        "text": "Data sources"
       },
       {
         "label": "C",
-        "text": "actions"
+        "text": "Actions"
       },
       {
         "label": "D",
-        "text": "tables"
+        "text": "Tables"
       },
       {
         "label": "E",
-        "text": "triggers"
+        "text": "Triggers"
       }
     ],
     "correct": [
@@ -8894,23 +8894,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "a customer support website that includes knowledgebase search and support for document uploads"
+        "text": "A customer support website that includes knowledgebase search and support for document uploads"
       },
       {
         "label": "B",
-        "text": "a public website that supports multilingual communities with forums and blogs support"
+        "text": "A public website that supports multilingual communities with forums and blogs support"
       },
       {
         "label": "C",
-        "text": "a secure website for mobile users that is available only by using a VPN into the corporate network"
+        "text": "A secure website for mobile users that is available only by using a VPN into the corporate network"
       },
       {
         "label": "D",
-        "text": "a secure website for vendors accessing data stored in Microsoft Dataverse"
+        "text": "A secure website for vendors accessing data stored in Microsoft Dataverse"
       },
       {
         "label": "E",
-        "text": "an internal website for employees with limited access to Dynamics 365 Finance data"
+        "text": "An internal website for employees with limited access to Dynamics 365 Finance data"
       }
     ],
     "correct": [
@@ -9747,23 +9747,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "a process argument"
+        "text": "A process argument"
       },
       {
         "label": "B",
-        "text": "a condition"
+        "text": "A condition"
       },
       {
         "label": "C",
-        "text": "an expression"
+        "text": "An expression"
       },
       {
         "label": "D",
-        "text": "a trigger"
+        "text": "A trigger"
       },
       {
         "label": "E",
-        "text": "a solution"
+        "text": "A solution"
       }
     ],
     "correct": [
@@ -10228,23 +10228,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "plug-in"
+        "text": "Plug-in"
       },
       {
         "label": "B",
-        "text": "approval flow"
+        "text": "Approval flow"
       },
       {
         "label": "C",
-        "text": "business rule"
+        "text": "Business rule"
       },
       {
         "label": "D",
-        "text": "team flow"
+        "text": "Team flow"
       },
       {
         "label": "E",
-        "text": "scheduled flow"
+        "text": "Scheduled flow"
       }
     ],
     "correct": [
@@ -13218,7 +13218,7 @@
               "h": 0.11702
             },
             {
-              "text": "(ou must create an automatic flow to launch a flow when a user",
+              "text": "You must create an automatic flow to launch a flow when a user",
               "x": 0.1625,
               "y": 0.12234,
               "w": 0.65,
@@ -14166,19 +14166,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "key phrase extraction"
+        "text": "Key phrase extraction"
       },
       {
         "label": "B",
-        "text": "sentiment analysis"
+        "text": "Sentiment analysis"
       },
       {
         "label": "C",
-        "text": "text recognition"
+        "text": "Text recognition"
       },
       {
         "label": "D",
-        "text": "language detection"
+        "text": "Language detection"
       }
     ],
     "correct": [
@@ -14194,19 +14194,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "expression"
+        "text": "Expression"
       },
       {
         "label": "B",
-        "text": "condition"
+        "text": "Condition"
       },
       {
         "label": "C",
-        "text": "action"
+        "text": "Action"
       },
       {
         "label": "D",
-        "text": "trigger"
+        "text": "Trigger"
       }
     ],
     "correct": [
@@ -14435,23 +14435,23 @@
     "choices": [
       {
         "label": "A",
-        "text": "when a record is displayed in a view"
+        "text": "When a record is displayed in a view"
       },
       {
         "label": "B",
-        "text": "when a record is deleted"
+        "text": "When a record is deleted"
       },
       {
         "label": "C",
-        "text": "when a record is created"
+        "text": "When a record is created"
       },
       {
         "label": "D",
-        "text": "when a record is updated"
+        "text": "When a record is updated"
       },
       {
         "label": "E",
-        "text": "when a record is read"
+        "text": "When a record is read"
       }
     ],
     "correct": [
@@ -15584,19 +15584,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "customizations"
+        "text": "Customizations"
       },
       {
         "label": "B",
-        "text": "actions"
+        "text": "Actions"
       },
       {
         "label": "C",
-        "text": "tables"
+        "text": "Tables"
       },
       {
         "label": "D",
-        "text": "triggers"
+        "text": "Triggers"
       }
     ],
     "correct": [
@@ -16081,7 +16081,7 @@
     ],
     "multi": false,
     "question_type": "multiple_choice",
-    "explanation": "The question asks for the best tool to create conversation paths for a agent handling product warranty inquiries. The proposed answer is \"Authoring canvas.\" Let's analyze why this is potentially correct while also considering alternative interpretations.\nOption A, \"Authoring canvas,\" likely refers to the visual design interface within Microsoft Copilot Studio (PVA).\nPVA is a low-code platform specifically designed for building agents. The authoring canvas allows users to visually design the conversational flow, including defining triggers (like warranty-related questions), responses, and conditional branching to guide the user through the interaction. It provides a graphical user interface (GUI) that makes it easy to create and manage the agent's conversation paths. It allows for dragging and dropping different conversation components, like questions, conditions, and actions, to create a visual representation of the conversation flow.\nOption D, \"Microsoft Copilot Studio portal,\" is also a strong contender because the Authoring Canvas is a part of the Microsoft Copilot Studio portal. The PVA portal provides the overarching environment for building, testing, deploying, and managing agents. However, the specific task of designing conversation paths is most directly performed on the Authoring Canvas.\nOption B, \"Azure agent Framework,\" is a more developer-centric platform that requires coding skills and is designed for creating more complex agents. While it's possible to use Azure agent Framework, it would be overkill for a simple agent answering product warranty questions. It's also outside of the scope of the Power Platform Fundamentals exam.\nOption C, \"Power Platform admin center,\" is used for managing environments, data loss prevention policies, and other administrative tasks, not for building agent conversations.\nThe subtle distinction is that the portal hosts the tools to build the agent, while the Authoring Canvas is the tool itself used to build the paths.\nBased on the wording of the question, focusing on creating conversation paths, the Authoring Canvas (A), which is the visual tool within PVA for designing those paths, is the most accurate and direct answer.\nHere's a link to Microsoft's documentation on Microsoft Copilot Studio:\nMicrosoft Microsoft Copilot Studio Documentation",
+    "explanation": "The question asks for the best tool to create conversation paths for an agent handling product warranty inquiries. The proposed answer is \"Authoring canvas.\" Let's analyze why this is potentially correct while also considering alternative interpretations.\nOption A, \"Authoring canvas,\" likely refers to the visual design interface within Microsoft Copilot Studio (PVA).\nPVA is a low-code platform specifically designed for building agents. The authoring canvas allows users to visually design the conversational flow, including defining triggers (like warranty-related questions), responses, and conditional branching to guide the user through the interaction. It provides a graphical user interface (GUI) that makes it easy to create and manage the agent's conversation paths. It allows for dragging and dropping different conversation components, like questions, conditions, and actions, to create a visual representation of the conversation flow.\nOption D, \"Microsoft Copilot Studio portal,\" is also a strong contender because the Authoring Canvas is a part of the Microsoft Copilot Studio portal. The PVA portal provides the overarching environment for building, testing, deploying, and managing agents. However, the specific task of designing conversation paths is most directly performed on the Authoring Canvas.\nOption B, \"Azure agent Framework,\" is a more developer-centric platform that requires coding skills and is designed for creating more complex agents. While it's possible to use Azure agent Framework, it would be overkill for a simple agent answering product warranty questions. It's also outside of the scope of the Power Platform Fundamentals exam.\nOption C, \"Power Platform admin center,\" is used for managing environments, data loss prevention policies, and other administrative tasks, not for building agent conversations.\nThe subtle distinction is that the portal hosts the tools to build the agent, while the Authoring Canvas is the tool itself used to build the paths.\nBased on the wording of the question, focusing on creating conversation paths, the Authoring Canvas (A), which is the visual tool within PVA for designing those paths, is the most accurate and direct answer.\nHere's a link to Microsoft's documentation on Microsoft Copilot Studio:\nMicrosoft Microsoft Copilot Studio Documentation",
     "topic": "Microsoft Copilot Studio"
   },
   {
@@ -16110,7 +16110,7 @@
         "No"
       ],
       "statements": [
-        "You must create a topic to specify how a agent responds to a user. O",
+        "You must create a topic to specify how an agent responds to a user. O",
         "You can use prebuilt entities or custom defined entities."
       ],
       "source_visuals": [
@@ -16149,7 +16149,7 @@
               "h": 0.08696
             },
             {
-              "text": "You must create a topic to specify how a agent responds to a user. O",
+              "text": "You must create a topic to specify how an agent responds to a user. O",
               "x": 0.00417,
               "y": 0.3087,
               "w": 0.82917,
@@ -16201,7 +16201,7 @@
               "h": 0.08696
             },
             {
-              "text": "You must create a topic to specify how a agent responds to a user. O",
+              "text": "You must create a topic to specify how an agent responds to a user. O",
               "x": 0.00417,
               "y": 0.3087,
               "w": 0.82917,
@@ -16245,7 +16245,7 @@
     ],
     "multi": false,
     "question_type": "multiple_choice",
-    "explanation": "D. Power Automate In Microsoft Copilot Studio (PVA), when you want a agent topic to call or perform an action, you use Power Automate flows.\nPower Automate allows the agent to:\nCall APIs Create or update records (Dataverse, SharePoint, etc.)\nSend emails or notifications Trigger approvals and business logic These flows are exposed to the agent as actions that can be called directly from a topic.\nReference:\nhttps://docs.microsoft.com/en-us/power-virtual-agents/advanced-flow",
+    "explanation": "D. Power Automate In Microsoft Copilot Studio (PVA), when you want an agent topic to call or perform an action, you use Power Automate flows.\nPower Automate allows the agent to:\nCall APIs Create or update records (Dataverse, SharePoint, etc.)\nSend emails or notifications Trigger approvals and business logic These flows are exposed to the agent as actions that can be called directly from a topic.\nReference:\nhttps://docs.microsoft.com/en-us/power-virtual-agents/advanced-flow",
     "topic": "Microsoft Copilot Studio"
   },
   {
@@ -16415,11 +16415,11 @@
     }
   },
   {
-    "q": "A company is creating a agent to replace a frequently asked questions (FAQ) site.\nYou must perform step-by-step testing for all scenarios that are part of a complex user interaction that includes multiple topics. Testers must be able to see the workflow while interacting with the agent.\nYou need to test the agent.\nWhat should you do?",
+    "q": "A company is creating an agent to replace a frequently asked questions (FAQ) site.\nYou must perform step-by-step testing for all scenarios that are part of a complex user interaction that includes multiple topics. Testers must be able to see the workflow while interacting with the agent.\nYou need to test the agent.\nWhat should you do?",
     "choices": [
       {
         "label": "A",
-        "text": "View analytics for a agent conversation."
+        "text": "View analytics for an agent conversation."
       },
       {
         "label": "B",
@@ -16460,7 +16460,7 @@
     ],
     "multi": true,
     "question_type": "hotspot_yes_no",
-    "explanation": "Box 1: Yes - agents built with Microsoft Copilot Studio will understand and display content that's locally relevant to the user. Localized handling and formatting are based on the user's browser locale setting, and include the following elements within a chat conversation:\n✑ Date and time ✑ Numbers ✑ ZIP or postal code ✑ Currency ✑ Speed\nBox 2: Yes - Custom entities:\nThe prebuilt entities cover commonly used information types, but on some occasions, such as when building a agent that serves a specific purpose, you'll need to teach the agent's language understanding model some domain-specific knowledge.\nFor instance, let's say you want to build a agent for an outdoor store. In this case, you'll need to teach the agent to acknowledge the \"outdoor gears product\" category in a dialog.\nReference:\nhttps://docs.microsoft.com/en-us/power-virtual-agents/data-location https://docs.microsoft.com/en-\nus/power-virtual-agents/advanced-entities-slot-filling",
+    "explanation": "Box 1: Yes - agents built with Microsoft Copilot Studio will understand and display content that's locally relevant to the user. Localized handling and formatting are based on the user's browser locale setting, and include the following elements within a chat conversation:\n✑ Date and time ✑ Numbers ✑ ZIP or postal code ✑ Currency ✑ Speed\nBox 2: Yes - Custom entities:\nThe prebuilt entities cover commonly used information types, but on some occasions, such as when building an agent that serves a specific purpose, you'll need to teach the agent's language understanding model some domain-specific knowledge.\nFor instance, let's say you want to build an agent for an outdoor store. In this case, you'll need to teach the agent to acknowledge the \"outdoor gears product\" category in a dialog.\nReference:\nhttps://docs.microsoft.com/en-us/power-virtual-agents/data-location https://docs.microsoft.com/en-\nus/power-virtual-agents/advanced-entities-slot-filling",
     "topic": "Microsoft Copilot Studio",
     "interaction": {
       "source_items": [
@@ -16468,10 +16468,10 @@
         "No"
       ],
       "statements": [
-        "You can use the prebuilt Postal Code entity to recommend plants that o",
+        "You can use the prebuilt Postal Code entity to recommend plants that",
         "will work within a customer's growing zone.",
-        "ou can create a custom entity to offer color and plant choices for",
-        "andscaping options that can be made available for customer orders."
+        "You can create a custom entity to offer color and plant choices for",
+        "landscaping options that can be made available for customer orders."
       ],
       "source_visuals": [
         {
@@ -16509,7 +16509,7 @@
               "h": 0.07742
             },
             {
-              "text": "You can use the prebuilt Postal Code entity to recommend plants that o",
+              "text": "You can use the prebuilt Postal Code entity to recommend plants that",
               "x": 0.0,
               "y": 0.38636,
               "w": 0.82917,
@@ -16523,14 +16523,14 @@
               "h": 0.10898
             },
             {
-              "text": "ou can create a custom entity to offer color and plant choices for",
+              "text": "You can create a custom entity to offer color and plant choices for",
               "x": 0.025,
               "y": 0.13548,
               "w": 0.72917,
               "h": 0.11452
             },
             {
-              "text": "andscaping options that can be made available for customer orders.",
+              "text": "landscaping options that can be made available for customer orders.",
               "x": 0.02917,
               "y": 0.04516,
               "w": 0.75833,
@@ -16575,7 +16575,7 @@
               "h": 0.07742
             },
             {
-              "text": "You can use the prebuilt Postal Code entity to recommend plants that o",
+              "text": "You can use the prebuilt Postal Code entity to recommend plants that",
               "x": 0.0,
               "y": 0.38636,
               "w": 0.82917,
@@ -16589,14 +16589,14 @@
               "h": 0.09032
             },
             {
-              "text": "ou can create a custom entity to offer color and plant choices for",
+              "text": "You can create a custom entity to offer color and plant choices for",
               "x": 0.025,
               "y": 0.13548,
               "w": 0.72917,
               "h": 0.11452
             },
             {
-              "text": "andscaping options that can be made available for customer orders.",
+              "text": "landscaping options that can be made available for customer orders.",
               "x": 0.02917,
               "y": 0.04516,
               "w": 0.75833,
@@ -17023,7 +17023,7 @@
         "No"
       ],
       "statements": [
-        "When escalating to a live person from a agent, the customer",
+        "When escalating to a live person from an agent, the customer",
         "must restate their issue and other information collected",
         "You can customize the greeting topic for every agent",
         "that you author."
@@ -17064,7 +17064,7 @@
               "h": 0.08497
             },
             {
-              "text": "When escalating to a live person from a agent, the customer",
+              "text": "When escalating to a live person from an agent, the customer",
               "x": 0.025,
               "y": 0.3366,
               "w": 0.74583,
@@ -17130,7 +17130,7 @@
               "h": 0.07843
             },
             {
-              "text": "When escalating to a live person from a agent, the customer",
+              "text": "When escalating to a live person from an agent, the customer",
               "x": 0.02,
               "y": 0.33987,
               "w": 0.7475,
@@ -17857,7 +17857,7 @@
     ],
     "multi": true,
     "question_type": "hotspot_yes_no",
-    "explanation": "Box 1: Yes - A topic has trigger phrases and conversation nodes. Trigger phrases are phrases, keywords, and questions that a user is likely to type that are related to a specific issue. Conversation nodes define how a agent should respond to a trigger phrase and what it should do.\nBox 2: No - A flow can only be called from a topic located in the same Microsoft Dataverse environment as your agent.\nBox 3: Yes - Once you're satisfied with your agent's content and quality, you can publish your agent to allow users to engage with your agent. You must publish your agent at least once for the user to chat with the agent in Microsoft Teams.\nEach time you want to update your agent's content, you publish it again from within the Microsoft Copilot Studio app in Microsoft Teams. This will update the agent's content with the latest changes you have made.\nReference:\nhttps://docs.microsoft.com/en-us/power-virtual-agents/authoring-create-edit-topics\nhttps://docs.microsoft.com/en-us/power-virtual-agents/advanced-flow https://docs.microsoft.com/en-\nus/power-virtual-agents/teams/publication-fundamentals-publish-channels-teams",
+    "explanation": "Box 1: Yes - A topic has trigger phrases and conversation nodes. Trigger phrases are phrases, keywords, and questions that a user is likely to type that are related to a specific issue. Conversation nodes define how an agent should respond to a trigger phrase and what it should do.\nBox 2: No - A flow can only be called from a topic located in the same Microsoft Dataverse environment as your agent.\nBox 3: Yes - Once you're satisfied with your agent's content and quality, you can publish your agent to allow users to engage with your agent. You must publish your agent at least once for the user to chat with the agent in Microsoft Teams.\nEach time you want to update your agent's content, you publish it again from within the Microsoft Copilot Studio app in Microsoft Teams. This will update the agent's content with the latest changes you have made.\nReference:\nhttps://docs.microsoft.com/en-us/power-virtual-agents/authoring-create-edit-topics\nhttps://docs.microsoft.com/en-us/power-virtual-agents/advanced-flow https://docs.microsoft.com/en-\nus/power-virtual-agents/teams/publication-fundamentals-publish-channels-teams",
     "topic": "Microsoft Copilot Studio",
     "interaction": {
       "source_items": [
@@ -17865,10 +17865,10 @@
         "No"
       ],
       "statements": [
-        "A topic in a agent can have several trigger phrases.",
+        "A topic in an agent can have several trigger phrases.",
         "A agent can call a Power Automate flow in a different Microsoft",
         "Power Platform environment.",
-        "You must publish a agent after making modifications for the",
+        "You must publish an agent after making modifications for the",
         "changes to be visible by users."
       ],
       "source_visuals": [
@@ -17907,7 +17907,7 @@
               "h": 0.08209
             },
             {
-              "text": "A topic in a agent can have several trigger phrases.",
+              "text": "A topic in an agent can have several trigger phrases.",
               "x": 0.275,
               "y": 0.54478,
               "w": 0.39583,
@@ -17942,7 +17942,7 @@
               "h": 0.09091
             },
             {
-              "text": "You must publish a agent after making modifications for the",
+              "text": "You must publish an agent after making modifications for the",
               "x": 0.275,
               "y": 0.14545,
               "w": 0.47083,
@@ -17994,7 +17994,7 @@
               "h": 0.07463
             },
             {
-              "text": "A topic in a agent can have several trigger phrases.",
+              "text": "A topic in an agent can have several trigger phrases.",
               "x": 0.275,
               "y": 0.54478,
               "w": 0.4,
@@ -18015,7 +18015,7 @@
               "h": 0.09091
             },
             {
-              "text": "You must publish a agent after making modifications for the",
+              "text": "You must publish an agent after making modifications for the",
               "x": 0.275,
               "y": 0.14545,
               "w": 0.47083,
@@ -18288,6 +18288,7 @@
     ],
     "correct": [
       "Yes",
+      "No",
       "Yes"
     ],
     "multi": true,
@@ -18300,8 +18301,8 @@
         "No"
       ],
       "statements": [
-        "Custom connectors use public or private APls to connect to external sources. O",
-        "You cannot use custom connectors in Power Automate",
+        "Custom connectors use public or private APIs to connect to external sources.",
+        "You cannot use custom connectors in Power Automate.",
         "Component operations of a connector can be an action or a trigger."
       ],
       "source_visuals": [
@@ -18340,7 +18341,7 @@
               "h": 0.06557
             },
             {
-              "text": "Custom connectors use public or private APls to connect to external sources. O",
+              "text": "Custom connectors use public or private APIs to connect to external sources.",
               "x": 0.01196,
               "y": 0.49119,
               "w": 0.84538,
@@ -18354,7 +18355,7 @@
               "h": 0.08197
             },
             {
-              "text": "You cannot use custom connectors in Power Automate",
+              "text": "You cannot use custom connectors in Power Automate.",
               "x": 0.0152,
               "y": 0.29508,
               "w": 0.57447,
@@ -18406,7 +18407,7 @@
               "h": 0.06667
             },
             {
-              "text": "Custom connectors use public or private APls to connect to external sources.",
+              "text": "Custom connectors use public or private APIs to connect to external sources.",
               "x": 0.01246,
               "y": 0.50833,
               "w": 0.80062,
@@ -19333,7 +19334,7 @@
     }
   },
   {
-    "q": "You are using Microsoft Copilot Studio to create a agent for your Power Pages site.\nYou need the agent to start from the beginning of the conversation if user input is unrecognized.\nWhat should you configure?",
+    "q": "You are using Microsoft Copilot Studio to create an agent for your Power Pages site.\nYou need the agent to start from the beginning of the conversation if user input is unrecognized.\nWhat should you configure?",
     "choices": [
       {
         "label": "A",
@@ -21345,19 +21346,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "automated cloud"
+        "text": "Automated cloud"
       },
       {
         "label": "B",
-        "text": "business process"
+        "text": "Business process"
       },
       {
         "label": "C",
-        "text": "desktop"
+        "text": "Desktop"
       },
       {
         "label": "D",
-        "text": "instant cloud"
+        "text": "Instant cloud"
       }
     ],
     "correct": [
@@ -22252,7 +22253,7 @@
               "h": 0.03704
             },
             {
-              "text": "unigger phrase",
+              "text": "Trigger phrase",
               "x": 0.69231,
               "y": 0.63889,
               "w": 0.18269,
@@ -22273,7 +22274,7 @@
               "h": 0.03704
             },
             {
-              "text": "(Show a message node",
+              "text": "Show a message node",
               "x": 0.69231,
               "y": 0.47222,
               "w": 0.26923,
@@ -22538,7 +22539,7 @@
               "h": 0.06494
             },
             {
-              "text": "You can trigger a Power Automate flow when you upload a Microsoft Excel orD",
+              "text": "You can trigger a Power Automate flow when you upload a Microsoft Excel or",
               "x": 0.05096,
               "y": 0.55844,
               "w": 0.81316,
@@ -24755,7 +24756,7 @@
               "h": 0.10909
             },
             {
-              "text": "tomatically send a reminder at 8 PM",
+              "text": "Automatically send a reminder at 8 PM",
               "x": 0.05172,
               "y": 0.11818,
               "w": 0.50862,
@@ -24769,7 +24770,7 @@
               "h": 0.08182
             },
             {
-              "text": "ased on a missing status report.",
+              "text": "based on a missing status report.",
               "x": 0.04741,
               "y": 0.05455,
               "w": 0.43534,
@@ -24786,19 +24787,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "column"
+        "text": "Column"
       },
       {
         "label": "B",
-        "text": "relationship"
+        "text": "Relationship"
       },
       {
         "label": "C",
-        "text": "dataflow"
+        "text": "Dataflow"
       },
       {
         "label": "D",
-        "text": "table"
+        "text": "Table"
       }
     ],
     "correct": [
@@ -25131,7 +25132,7 @@
               "h": 0.09091
             },
             {
-              "text": "Teachers cares the canvasappy sidestorand mobile",
+              "text": "Teachers can access the canvas app by using desktops and mobile",
               "x": 0.01603,
               "y": 0.69318,
               "w": 0.69551,
@@ -25199,7 +25200,7 @@
     ],
     "multi": false,
     "question_type": "multiple_choice",
-    "explanation": "C. Transfer a chat to a live person if the copilot cannot answer the question.\nIn Microsoft Copilot Studio, a copilot in a Microsoft Teams channel can be configured to escalate conversations to a live agent when it cannot resolve a query. This is a common feature in agent workflows where a agent recognizes its limitations and hands off the chat to a human for further assistance.",
+    "explanation": "C. Transfer a chat to a live person if the copilot cannot answer the question.\nIn Microsoft Copilot Studio, a copilot in a Microsoft Teams channel can be configured to escalate conversations to a live agent when it cannot resolve a query. This is a common feature in agent workflows where an agent recognizes its limitations and hands off the chat to a human for further assistance.",
     "topic": "Microsoft Copilot Studio"
   },
   {
@@ -25860,7 +25861,7 @@
               "h": 0.08605
             },
             {
-              "text": "i Power Automate cloud flov",
+              "text": "a Power Automate cloud flow.",
               "x": 0.5559,
               "y": 0.26667,
               "w": 0.3323,
@@ -28990,19 +28991,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "tenant"
+        "text": "Tenant"
       },
       {
         "label": "B",
-        "text": "row"
+        "text": "Row"
       },
       {
         "label": "C",
-        "text": "environment"
+        "text": "Environment"
       },
       {
         "label": "D",
-        "text": "column"
+        "text": "Column"
       }
     ],
     "correct": [
@@ -29252,19 +29253,19 @@
     "choices": [
       {
         "label": "A",
-        "text": "security role"
+        "text": "Security role"
       },
       {
         "label": "B",
-        "text": "dataflow"
+        "text": "Dataflow"
       },
       {
         "label": "C",
-        "text": "business rule"
+        "text": "Business rule"
       },
       {
         "label": "D",
-        "text": "data loss prevention policy"
+        "text": "Data loss prevention policy"
       }
     ],
     "correct": [
@@ -29476,7 +29477,7 @@
     ],
     "multi": false,
     "question_type": "multiple_choice",
-    "explanation": "Correct option: A – Power Pages site Purpose-built for external customers – Power Pages (formerly Power Canvas) creates secure, branded portals that expose Dataverse data to non-employee users, handling authentication (Microsoft Entra ID, Microsoft Entra)\nout-of-the-box.\nNative integration with Dataverse – The portal can directly surface tables, views, and forms, so open cases are displayed with the same security roles and column-level security defined in the model.\nResponsive, low-code experience – Drag-and-drop page builders, built-in templates, and built-in navigation let you quickly design a ticket-status dashboard without writing code, yet you can embed custom components (Power Automate flows, Power Virtual Agents) when needed.\nScalable and governed – Access is controlled through Dataverse security, Microsoft Entra ID Conditional Access, and built-in usage analytics, meeting compliance requirements for customer-facing data.\nWhy the other options are less suitable Model-driven app (B) – Designed primarily for internal staff and complex business processes; it lacks the out-of-the-box portal UI, authentication flow, and customer-centric branding needed for external users.\nCanvas app (C) – Intended for building custom internal apps that run on desktop or mobile; it does not provide a web-based portal, user authentication, or the responsive layout required for customer access.\nThus, a Power Pages site is the only Power Platform capability that directly satisfies the requirement for a secure, customer-facing portal connected to a ticketing application in Dataverse.",
+    "explanation": "Correct option: A – Power Pages site Purpose-built for external customers – Power Pages (formerly Power Canvas) creates secure, branded portals that expose Dataverse data to non-employee users, handling authentication (Microsoft Entra ID, Microsoft Entra)\nout-of-the-box.\nNative integration with Dataverse – The portal can directly surface tables, views, and forms, so open cases are displayed with the same security roles and column-level security defined in the model.\nResponsive, low-code experience – Drag-and-drop page builders, built-in templates, and built-in navigation let you quickly design a ticket-status dashboard without writing code, yet you can embed custom components (Power Automate flows, Microsoft Copilot Studio) when needed.\nScalable and governed – Access is controlled through Dataverse security, Microsoft Entra ID Conditional Access, and built-in usage analytics, meeting compliance requirements for customer-facing data.\nWhy the other options are less suitable Model-driven app (B) – Designed primarily for internal staff and complex business processes; it lacks the out-of-the-box portal UI, authentication flow, and customer-centric branding needed for external users.\nCanvas app (C) – Intended for building custom internal apps that run on desktop or mobile; it does not provide a web-based portal, user authentication, or the responsive layout required for customer access.\nThus, a Power Pages site is the only Power Platform capability that directly satisfies the requirement for a secure, customer-facing portal connected to a ticketing application in Dataverse.",
     "topic": "Microsoft Dataverse"
   },
   {
