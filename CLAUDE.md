@@ -5,11 +5,13 @@ Platform Fundamentals**, with the question banks baked into the page. No server,
 no dependencies, no network calls. It works by double-clicking `index.html`.
 
 **Two banks, never mixed.** A tab strip on the setup screen picks between
-**Full** (381 questions, everything extracted from the PDF) and **Focused**
-(230, a curated subset). A session draws from exactly one of them; nothing in
-the app or the build ever concatenates them. Both offer all three modes, and the
-active bank is named in the sticky bar during a session and in the results
-header. Focused is a strict subset of Full — see *Known data issues*.
+**Full** (381 questions, everything extracted from the PDF, in the wording the
+dump used) and **Focused** (230, a curated subset of the same questions
+rewritten in current Microsoft terminology). A session draws from exactly one of
+them; nothing in the app or the build ever concatenates them. Both offer all
+three modes, and the active bank is named in the sticky bar during a session and
+in the results header. See *Known data issues* before treating them as
+independent material.
 
 **Unofficial.** Not affiliated with, endorsed by, or reviewed by Microsoft. The
 bank is community-quality material extracted from a PDF dump — see *Known data
@@ -22,7 +24,7 @@ issues* before trusting any single answer.
 | File | Role |
 | --- | --- |
 | `questions.json` | **Source of truth for the Full bank** (382 raw → 381 rendered). Humans edit this. |
-| `focused-questions.json` | **Source of truth for the Focused bank** (230). Same schema, same pipeline. |
+| `focused-questions.json` | **Source of truth for the Focused bank** (230, modernized wording). Same schema, same pipeline. |
 | `index.html` | The whole app: markup, CSS, JS, and a generated copy of the bank. |
 | `build.py` | Validates `questions.json`, rebuilds the answer-area widgets, injects the bank into `index.html`. |
 | `build_questions.py` | The upstream extractor: `pl-900.pdf` → `questions.json`. Not part of the app build. |
@@ -276,20 +278,27 @@ The PDF is in the repo, so any claim here can be re-checked.
   disagree, trust neither until you have checked Microsoft Learn. Several
   explanations argue for an answer the `correct` field does not record — the
   Yes/No mismatches above are the visible cases.
-- **Terminology is dated in places.** Much of the bank predates the renames:
-  Common Data Service → Dataverse, Microsoft Flow → Power Automate, Power
-  Virtual Agents → Copilot Studio, entity → table, field → column. Answers are
-  kept as written; the current exam uses the new names.
+- **Terminology differs between the banks, deliberately.** Full is left in the
+  dump's original wording, which predates the renames — it still says Common
+  Data Service (45 times), Power Virtual Agents (50), Microsoft Flow (10),
+  entity, and field. Focused has been rewritten to the current names:
+  Dataverse, Microsoft Copilot Studio, Power Automate, table, column, row, with
+  the choices, answers, explanations, and the OCR text in `interaction`
+  updated in step so the answer-area reconstruction still matches. Neither bank
+  is wrong; Focused is the one that reads like the current exam.
 - **Duplicates:** exact-normalized repeats are dropped by `dedupe`. Near
   duplicates — the same fact asked in different words — are kept. There are
   several; they are legitimate recall practice.
-- **Focused is a strict subset of Full.** All 230 of its stems, with the same
-  recorded answers, appear in `questions.json`. Drilling both banks means seeing
-  those questions twice, and a Focused score is not independent evidence on top
-  of a Full score. 17 of its stems repeat inside the bank itself; they survive
-  `dedupe` because their statements or answers differ, so they are distinct
-  questions sharing a boilerplate stem. It builds clean: 230 in, 230 rendered,
-  9 flagged for review.
+- **Focused is Full's questions, not extra ones.** 195 of its 230 stems are
+  still character-for-character in `questions.json`, and the other 35 differ
+  only by the renamed terms. Drilling both banks means seeing these questions
+  twice, and a Focused score is not independent evidence on top of a Full
+  score. 17 of its stems repeat inside the bank itself; they survive `dedupe`
+  because their statements or answers differ, so they are distinct questions
+  sharing a boilerplate stem. It builds clean: 230 in, 230 rendered, 9 flagged
+  for review.
+- **The rename pass left 11 "a agent" in Focused**, where "an agent" is meant.
+  Cosmetic, in stems and explanations, not in any answer.
 
 ---
 
