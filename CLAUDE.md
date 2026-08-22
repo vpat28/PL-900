@@ -28,6 +28,7 @@ issues* before trusting any single answer.
 | `index.html` | The whole app: markup, CSS, JS, and a generated copy of the bank. |
 | `build.py` | Validates `questions.json`, rebuilds the answer-area widgets, injects the bank into `index.html`. |
 | `build_questions.py` | The upstream extractor: `pl-900.pdf` → `questions.json`. Not part of the app build. |
+| `test.svg` | Source glyph for the favicon — a certified-document mark. The page inlines it; the file is only kept so the shape can be re-colored or re-inset later. |
 | `pl-900.pdf` | The source dump. **Not committed** (32 MB, third-party material) — keep a local copy if you want to re-run `build_questions.py`. |
 
 ### The one rule
@@ -231,6 +232,12 @@ message bars — tinted background, 4px left accent, no radius.
 Unanswered choice rows draw a radio (`.pip`) or a checkbox (`.pip.box`) rather
 than a letter, matching the exam; the letters still work as keyboard shortcuts
 and the verdict names the correct **options**, not their letters.
+
+The favicon is an inline data-URI SVG — the `test.svg` glyph in white, inset
+inside a `#0078D4` rounded tile. It must stay inline: the page has to keep
+working as a single file. The tile matters at 16px, where a bare glyph turns to
+mush and where the sibling GH-900 / GH-300 apps already use a white `+` on a
+colored square, so shape is what tells the tabs apart.
 
 **This stylesheet is light-only and deliberately has no dark counterpart** — the
 real exam UI has one palette, and `<meta name="color-scheme" content="light">`
