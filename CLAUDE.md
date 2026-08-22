@@ -28,6 +28,7 @@ issues* before trusting any single answer.
 | `index.html` | The whole app: markup, CSS, JS, and a generated copy of the bank. |
 | `build.py` | Validates `questions.json`, rebuilds the answer-area widgets, injects the bank into `index.html`. |
 | `build_questions.py` | The upstream extractor: `pl-900.pdf` → `questions.json`. Not part of the app build. |
+| `test.svg` | Source glyph for the favicon — a certified-document mark. The page inlines it; the file is only kept so the shape can be re-colored or re-inset later. |
 | `pl-900.pdf` | The source dump. **Not committed** (32 MB, third-party material) — keep a local copy if you want to re-run `build_questions.py`. |
 
 ### The one rule
@@ -207,25 +208,76 @@ primary button.
 
 ### Design conventions
 
-The signature is the **diff gutter**: a graded question reads like a diff of
-your answer against the correct one. Correct and picked → `.correct`, gutter
-`+`. Picked and wrong → `.wrong`, gutter `−` (U+2212, not a hyphen). Correct
-and missed → `.missed`. Every interactive row carries the same gutter, so a
-half-right answer area shows exactly which rows failed.
+The page imitates the **Microsoft exam delivery UI** (Fluent 1, as used by the
+Pearson VUE delivery client): Segoe UI, `#0078D4` blue, 2px corner radius,
+neutral greys `#F3F2F1`/`#E1DFDD`/`#605E5C`, flat surfaces, and a 940px content
+sheet on a grey page.
 
-**Never hard-code a color** in markup or JS; add a variable to `:root` and give
-it a dark-mode counterpart **in the same commit**. Type scale, 820px column,
-52px gutter, monospace for eyebrows/labels/buttons — all as in the GH-900
-reference app. Motion is gated on `REDUCED` in JS and a media query in CSS.
+The session chrome is three fixed pieces, all hidden outside a session:
+
+| Element | Role |
+| --- | --- |
+| `.examtop` | Near-black title strip: exam name left, "Unofficial practice" tag right |
+| `.bar` | Info strip: "Question N of M", mode, bank, running score, timer chip |
+| `.actionbar` | Fixed bottom bar: keyboard hint left, Previous / Next right |
+
+Grading feedback has no equivalent in the real UI, so it borrows Fluent's
+message-bar and validation language instead: a picked-and-correct row is
+`.correct` (green tint, 3px inset left rule, `✓` in the rail), picked-and-wrong
+is `.wrong` (`✕`), and a missed answer is `.missed` (dashed `✓`). Every
+interactive row carries the same rail, so a half-right answer area shows exactly
+which rows failed. The verdict and the "needs review" note render as Fluent
+message bars — tinted background, 4px left accent, no radius.
+
+Unanswered choice rows draw a radio (`.pip`) or a checkbox (`.pip.box`) rather
+than a letter, matching the exam; the letters still work as keyboard shortcuts
+and the verdict names the correct **options**, not their letters.
+
+The favicon is an inline data-URI SVG — the `test.svg` glyph in white, inset
+inside a black rounded tile. It must stay inline: the page has to keep
+working as a single file. The tile matters at 16px, where a bare glyph turns to
+mush and where the sibling GH-900 / GH-300 apps already use a white `+` on a
+colored square, so shape is what tells the tabs apart.
+
+**This stylesheet is light-only and deliberately has no dark counterpart** — the
+real exam UI has one palette, and `<meta name="color-scheme" content="light">`
+keeps the form controls from being themed out from under it. That is the one
+place this repo departs from the GH-900 reference app's rules. Never hard-code a
+color in markup or JS; add a token to `:root`. Motion is gated on `REDUCED` in
+JS and a media query in CSS.
 
 `.want` is the green "here is the answer" annotation; `.dot.key` is the dashed
-ring on the Yes/No radio you should have picked. They are different things —
-do not merge the class names.
+ring on the Yes/No radio you should have picked; `.mark` is the graded ✓/✕ in
+the row rail. They are different things — do not merge the class names.
 
-Colors, radii, and shadows are tokens on `:root` (`--accent`, `--r-md`,
-`--shadow`…) with a dark counterpart in the same block. The primary button is
-accent-filled and uses `--on-accent` for its label; ghost buttons are the muted
-outline. There is no page footer.
+### Touch and small screens
+
+The app is meant to be usable on a phone and an iPad, which the exam client
+never has to be, so a few rules exist only for that:
+
+- **Drag is never the only way.** HTML5 drag-and-drop does not fire on iOS
+  Safari at all. Tap-an-item-then-tap-a-slot is the primary interaction and
+  drag is the convenience on top; the hint text says "tap" or "click" depending
+  on `TOUCH` (`matchMedia('(hover:none)')`). Picking an item on a touch device
+  scrolls the first open slot into view, because the pool and the answer area
+  do not fit on a phone together.
+- **44px touch targets.** The Yes/No control is a 44px `button.dot` wrapping an
+  18px `span.ring`; the button is the hit area and the ring is what you see.
+  Never collapse them back into one element.
+- **16px form text on touch.** `.sel` goes to 16px under `(hover:none)` — below
+  that, iOS Safari zooms the page when a `<select>` takes focus, and it does not
+  zoom back out.
+- **Three breakpoints, not one.** 760px shrinks the chrome and stacks the mode
+  cards; 620px is where the answer-area tables collapse to one column, chosen
+  so an iPad in portrait (744–834px) keeps the real three-column table; and
+  `(hover:none)` handles target sizes independently of width.
+- The fixed action bar adds `env(safe-area-inset-bottom)`, and the sheet's
+  min-height is `100dvh` with a `100vh` fallback, so the iOS toolbars do not
+  cover the buttons.
+
+Verified with device emulation over CDP at iPhone SE / 15 / 15 Pro Max
+(portrait and landscape), iPad mini, iPad Pro 11", and iPad Pro 12.9 landscape:
+no horizontal overflow, tap-to-place works, no control under 44px.
 
 ### Hard constraints
 
@@ -333,8 +385,10 @@ Then, in the browser (`file://` is the real target):
 - [ ] Mock: clock counts down, turns red at 10:00, auto-submits at zero
 - [ ] "Practice what I missed" re-runs only the missed questions, in practice mode
 - [ ] Results: topic meters sum to the session length; map cells jump to review
-- [ ] Dark mode: every surface, gutter, radio, and slot is legible
-- [ ] 375px wide: the answer column stacks under the prompt, nothing overflows
+- [ ] Exam chrome: title strip, "Question N of M", timer chip and the fixed
+      bottom bar appear on start and disappear on finish
+- [ ] 375px wide: the answer column stacks under the prompt, the action bar
+      buttons go full width, nothing overflows
 - [ ] Reduced motion: no animation, score numeral appears at its final value
 - [ ] Tabs: switching repoints the stats, the kind breakdown and the length
       chips; arrow keys move between tabs
