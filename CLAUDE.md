@@ -1,8 +1,15 @@
 # PL-900 practice app
 
 A static, single-page practice and mock-exam tool for **PL-900 · Microsoft Power
-Platform Fundamentals**, with the question bank baked into the page. No server,
+Platform Fundamentals**, with the question banks baked into the page. No server,
 no dependencies, no network calls. It works by double-clicking `index.html`.
+
+**Two banks, never mixed.** A tab strip on the setup screen picks between
+**Full** (381 questions, everything extracted from the PDF) and **Focused**
+(230, a curated subset). A session draws from exactly one of them; nothing in
+the app or the build ever concatenates them. Both offer all three modes, and the
+active bank is named in the sticky bar during a session and in the results
+header. Focused is a strict subset of Full — see *Known data issues*.
 
 **Unofficial.** Not affiliated with, endorsed by, or reviewed by Microsoft. The
 bank is community-quality material extracted from a PDF dump — see *Known data
@@ -14,7 +21,8 @@ issues* before trusting any single answer.
 
 | File | Role |
 | --- | --- |
-| `questions.json` | **Source of truth for the question bank.** Humans edit this. |
+| `questions.json` | **Source of truth for the Full bank** (382 raw → 381 rendered). Humans edit this. |
+| `focused-questions.json` | **Source of truth for the Focused bank** (230). Same schema, same pipeline. |
 | `index.html` | The whole app: markup, CSS, JS, and a generated copy of the bank. |
 | `build.py` | Validates `questions.json`, rebuilds the answer-area widgets, injects the bank into `index.html`. |
 | `build_questions.py` | The upstream extractor: `pl-900.pdf` → `questions.json`. Not part of the app build. |
@@ -22,13 +30,18 @@ issues* before trusting any single answer.
 
 ### The one rule
 
-`index.html` contains a generated copy of the bank on a single line starting
-`const BANK = `. **Never hand-edit that line.** Edit `questions.json`, then run
-`python3 build.py`.
+`index.html` contains a generated copy of each bank on a single line — `const
+BANK = ` for Full, `const BANK_FOCUS = ` for Focused. **Never hand-edit those
+lines.** Edit the `.json`, then run `python3 build.py`.
 
-Both files are committed — `index.html` has to carry the data so the page stays
-self-contained. Any change to the bank is a two-file commit; a diff that touches
-`questions.json` and not `index.html` means the build step was skipped.
+All three files are committed — `index.html` has to carry the data so the page
+stays self-contained. Any change to a bank is a two-file commit; a diff that
+touches a `.json` and not `index.html` means the build step was skipped.
+
+Adding a third bank means one entry in `BANKS` in `build.py` (name, file,
+`const` variable, label), one `const <VAR> = [];` line in `index.html`, one
+entry in the `BANKS` array in the page JS, and one `<button class="tab">` in the
+strip. Nothing else in the app is bank-aware.
 
 The baked bank is **not** a copy of `questions.json`. It is the derived,
 render-ready form: the raw PDF extraction (`interaction`) is dropped and
@@ -37,10 +50,12 @@ two are in sync, re-derive rather than diff:
 
 ```bash
 python3 - <<'PY'
-import json, pathlib, re, build
-src = build.normalize(json.loads(pathlib.Path("questions.json").read_text()))
-baked = json.loads(re.search(r"^const BANK = (.*);$", pathlib.Path("index.html").read_text(), re.M).group(1))
-print("in sync" if build.bake(src)[0] == baked else "DRIFTED")
+import json, pathlib, build
+page = pathlib.Path("index.html").read_text()
+for b in build.BANKS:
+    src = build.normalize(json.loads((build.ROOT / b.file).read_text()))
+    baked = json.loads(build.anchor(b.var).search(page).group(0).split(" = ", 1)[1].rstrip(";"))
+    print(b.label, "in sync" if build.bake(src)[0] == baked else "DRIFTED")
 PY
 ```
 
@@ -90,10 +105,15 @@ field.
 Python 3 standard library only. No `package.json`, no bundler, ever.
 
 ```bash
-python3 build.py            # validate, derive, write index.html and questions.json
+python3 build.py            # validate, derive, write index.html and both .json files
 python3 build.py --check    # validate and report only, write nothing
 python3 build.py --report   # per-question derivation detail for spot checks
+python3 build.py focused    # restrict any of the above to one bank (full | focused)
 ```
+
+Every bank runs the same pipeline and gets its own report. `index.html` is read
+once, has every bank substituted into it, and is written once — a failure on the
+second bank leaves the file untouched rather than half-updated.
 
 Pipeline: `read → normalize → validate → dedupe → bake → report → write`.
 `validate` collects every problem, prints them, exits 1, and writes nothing.
@@ -148,10 +168,17 @@ Three `<section>`s toggled with the `hidden` attribute: `#setup`, `#quiz`,
 
 ```js
 const MOCK_N = 50, MOCK_SEC = 45 * 60;
-let cfg = { mode, count, shufQ, shufC, onlyMulti, onlyInteractive };
-let S = { qs, i, picks, done, t0, lastI, limit, tick };
+const BANKS = [{ label, qs, note }, ...];        // Full, Focused — never concatenated
+let cfg = { bank, mode, count, shufQ, shufC, onlyMulti, onlyInteractive };
+let S = { qs, i, picks, done, t0, lastI, limit, tick, bank };
 let held = null;   // pool item picked up in a drag-and-drop question
 ```
+
+`bank()` is the active entry; `refreshBank()` repoints the whole setup screen at
+it — note, stats, kind breakdown, topic count, and the length chips, which are
+regenerated because the bank sizes differ. `S.bank` is captured at `start()`, so
+the sticky bar and the results header name the bank the session actually drew
+from even if the tab is switched afterwards.
 
 `isTest()` means "not practice" — it is the switch for every silent-mode branch.
 
@@ -256,6 +283,13 @@ The PDF is in the repo, so any claim here can be re-checked.
 - **Duplicates:** exact-normalized repeats are dropped by `dedupe`. Near
   duplicates — the same fact asked in different words — are kept. There are
   several; they are legitimate recall practice.
+- **Focused is a strict subset of Full.** All 230 of its stems, with the same
+  recorded answers, appear in `questions.json`. Drilling both banks means seeing
+  those questions twice, and a Focused score is not independent evidence on top
+  of a Full score. 17 of its stems repeat inside the bank itself; they survive
+  `dedupe` because their statements or answers differ, so they are distinct
+  questions sharing a boilerplate stem. It builds clean: 230 in, 230 rendered,
+  9 flagged for review.
 
 ---
 
@@ -287,3 +321,7 @@ Then, in the browser (`file://` is the real target):
 - [ ] Dark mode: every surface, gutter, radio, and slot is legible
 - [ ] 375px wide: the answer column stacks under the prompt, nothing overflows
 - [ ] Reduced motion: no animation, score numeral appears at its final value
+- [ ] Tabs: switching repoints the stats, the kind breakdown and the length
+      chips; arrow keys move between tabs
+- [ ] A session started from Focused contains only Focused questions, and the
+      sticky bar and results header both say Focused

@@ -12,6 +12,7 @@ Usage:
     python3 build.py            validate, derive, write index.html
     python3 build.py --check    validate and report only, write nothing
     python3 build.py --report   per-question derivation detail for spot checks
+    python3 build.py focused    restrict any of the above to one bank
 """
 
 from __future__ import annotations
@@ -24,9 +25,22 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
-SRC = ROOT / "questions.json"
 PAGE = ROOT / "index.html"
-ANCHOR = re.compile(r"^const BANK = .*;$", re.M)
+
+Bank = collections.namedtuple("Bank", "name file var label")
+
+# The banks are separate all the way down: each gets its own anchor line in
+# index.html, and nothing here or in the app ever concatenates them.
+BANKS = [
+    Bank("full", "questions.json", "BANK", "Full"),
+    Bank("focused", "focused-questions.json", "BANK_FOCUS", "Focused"),
+]
+
+SRC = ROOT / BANKS[0].file          # kept for the sync check in CLAUDE.md
+
+
+def anchor(var):
+    return re.compile(r"^const %s = .*;$" % var, re.M)
 
 # The answer-area images are OCRed, and the OCR confuses a handful of glyphs the
 # same way every time. Fix them for display; norm() fixes them again for matching.
@@ -654,37 +668,56 @@ def report(bank):
 def main(argv):
     check = "--check" in argv
     detail = "--report" in argv
-    qs = json.loads(SRC.read_text(encoding="utf-8"))
-    before = len(qs)
-    qs = normalize(qs)
-    problems = validate(qs)
-    if problems:
-        print(f"{len(problems)} problem(s) in questions.json:")
-        for p in problems:
-            print("  " + p)
+    only = [a for a in argv if not a.startswith("--")]
+    banks = [b for b in BANKS if not only or b.name in only]
+    if not banks:
+        print("no such bank; known: " + ", ".join(b.name for b in BANKS), file=sys.stderr)
         return 1
-    qs = dedupe(qs)
-    bank, degraded, dropped = bake(qs)
-    if dropped:
-        print(f"{len(dropped)} question(s) could not be rendered at all and were dropped:")
-        for n, t, text in dropped:
-            print(f"  #{n} [{t}] {text}...")
-    print(f"read {before} · kept {len(bank)}")
-    report(bank)
-    if detail:
-        for i, r in enumerate(bank, 1):
-            print(f"\n#{i} [{r['kind']}] {r['q'][:80]}")
-            print("   " + json.dumps({k: v for k, v in r.items() if k not in ("q", "explanation")}, ensure_ascii=False)[:400])
+
+    built = []
+    for b in banks:
+        path = ROOT / b.file
+        if not path.exists():
+            print(f"{b.file}: missing", file=sys.stderr)
+            return 1
+        print(f"\n=== {b.label} ({b.file}) ===")
+        qs = normalize(json.loads(path.read_text(encoding="utf-8")))
+        before = len(qs)
+        problems = validate(qs)
+        if problems:
+            print(f"{len(problems)} problem(s) in {b.file}:")
+            for p in problems:
+                print("  " + p)
+            return 1
+        qs = dedupe(qs)
+        records, degraded, dropped = bake(qs)
+        if dropped:
+            print(f"{len(dropped)} question(s) could not be rendered at all and were dropped:")
+            for n, t, text in dropped:
+                print(f"  #{n} [{t}] {text}...")
+        print(f"read {before} · kept {len(records)}")
+        report(records)
+        if detail:
+            for i, r in enumerate(records, 1):
+                print(f"\n#{i} [{r['kind']}] {r['q'][:80]}")
+                print("   " + json.dumps({k: v for k, v in r.items() if k not in ("q", "explanation")}, ensure_ascii=False)[:400])
+        built.append((b, qs, records))
+
     if check or detail:
         return 0
+
     page = PAGE.read_text(encoding="utf-8")
-    if len(ANCHOR.findall(page)) != 1:
-        print("index.html: expected exactly one 'const BANK = ...;' line", file=sys.stderr)
-        return 1
-    line = "const BANK = " + json.dumps(bank, ensure_ascii=False) + ";"
-    PAGE.write_text(ANCHOR.sub(lambda m: line, page, count=1), encoding="utf-8")
-    SRC.write_text(json.dumps(qs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"wrote {PAGE.name} ({len(line) // 1024} KB of bank)")
+    for b, _, records in built:
+        pat = anchor(b.var)
+        if len(pat.findall(page)) != 1:
+            print(f"index.html: expected exactly one 'const {b.var} = ...;' line", file=sys.stderr)
+            return 1
+        line = f"const {b.var} = " + json.dumps(records, ensure_ascii=False) + ";"
+        page = pat.sub(lambda m: line, page, count=1)
+    PAGE.write_text(page, encoding="utf-8")
+    for b, qs, _ in built:
+        (ROOT / b.file).write_text(json.dumps(qs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"\nwrote {PAGE.name} ({len(page) // 1024} KB, {len(built)} bank(s))")
     return 0
 
 
