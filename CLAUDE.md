@@ -207,25 +207,41 @@ primary button.
 
 ### Design conventions
 
-The signature is the **diff gutter**: a graded question reads like a diff of
-your answer against the correct one. Correct and picked → `.correct`, gutter
-`+`. Picked and wrong → `.wrong`, gutter `−` (U+2212, not a hyphen). Correct
-and missed → `.missed`. Every interactive row carries the same gutter, so a
-half-right answer area shows exactly which rows failed.
+The page imitates the **Microsoft exam delivery UI** (Fluent 1, as used by the
+Pearson VUE delivery client): Segoe UI, `#0078D4` blue, 2px corner radius,
+neutral greys `#F3F2F1`/`#E1DFDD`/`#605E5C`, flat surfaces, and a 940px content
+sheet on a grey page.
 
-**Never hard-code a color** in markup or JS; add a variable to `:root` and give
-it a dark-mode counterpart **in the same commit**. Type scale, 820px column,
-52px gutter, monospace for eyebrows/labels/buttons — all as in the GH-900
-reference app. Motion is gated on `REDUCED` in JS and a media query in CSS.
+The session chrome is three fixed pieces, all hidden outside a session:
+
+| Element | Role |
+| --- | --- |
+| `.examtop` | Near-black title strip: exam name left, "Unofficial practice" tag right |
+| `.bar` | Info strip: "Question N of M", mode, bank, running score, timer chip |
+| `.actionbar` | Fixed bottom bar: keyboard hint left, Previous / Next right |
+
+Grading feedback has no equivalent in the real UI, so it borrows Fluent's
+message-bar and validation language instead: a picked-and-correct row is
+`.correct` (green tint, 3px inset left rule, `✓` in the rail), picked-and-wrong
+is `.wrong` (`✕`), and a missed answer is `.missed` (dashed `✓`). Every
+interactive row carries the same rail, so a half-right answer area shows exactly
+which rows failed. The verdict and the "needs review" note render as Fluent
+message bars — tinted background, 4px left accent, no radius.
+
+Unanswered choice rows draw a radio (`.pip`) or a checkbox (`.pip.box`) rather
+than a letter, matching the exam; the letters still work as keyboard shortcuts
+and the verdict names the correct **options**, not their letters.
+
+**This stylesheet is light-only and deliberately has no dark counterpart** — the
+real exam UI has one palette, and `<meta name="color-scheme" content="light">`
+keeps the form controls from being themed out from under it. That is the one
+place this repo departs from the GH-900 reference app's rules. Never hard-code a
+color in markup or JS; add a token to `:root`. Motion is gated on `REDUCED` in
+JS and a media query in CSS.
 
 `.want` is the green "here is the answer" annotation; `.dot.key` is the dashed
-ring on the Yes/No radio you should have picked. They are different things —
-do not merge the class names.
-
-Colors, radii, and shadows are tokens on `:root` (`--accent`, `--r-md`,
-`--shadow`…) with a dark counterpart in the same block. The primary button is
-accent-filled and uses `--on-accent` for its label; ghost buttons are the muted
-outline. There is no page footer.
+ring on the Yes/No radio you should have picked; `.mark` is the graded ✓/✕ in
+the row rail. They are different things — do not merge the class names.
 
 ### Hard constraints
 
@@ -333,8 +349,10 @@ Then, in the browser (`file://` is the real target):
 - [ ] Mock: clock counts down, turns red at 10:00, auto-submits at zero
 - [ ] "Practice what I missed" re-runs only the missed questions, in practice mode
 - [ ] Results: topic meters sum to the session length; map cells jump to review
-- [ ] Dark mode: every surface, gutter, radio, and slot is legible
-- [ ] 375px wide: the answer column stacks under the prompt, nothing overflows
+- [ ] Exam chrome: title strip, "Question N of M", timer chip and the fixed
+      bottom bar appear on start and disappear on finish
+- [ ] 375px wide: the answer column stacks under the prompt, the action bar
+      buttons go full width, nothing overflows
 - [ ] Reduced motion: no animation, score numeral appears at its final value
 - [ ] Tabs: switching repoints the stats, the kind breakdown and the length
       chips; arrow keys move between tabs
