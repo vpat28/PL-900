@@ -297,8 +297,14 @@ The PDF is in the repo, so any claim here can be re-checked.
   because their statements or answers differ, so they are distinct questions
   sharing a boilerplate stem. It builds clean: 230 in, 230 rendered, 9 flagged
   for review.
-- **The rename pass left 11 "a agent" in Focused**, where "an agent" is meant.
-  Cosmetic, in stems and explanations, not in any answer.
+- **Two leftovers from the rename pass in Focused**, both cosmetic and neither
+  in an answer: 11 occurrences of "a agent" where "an agent" is meant, and one
+  surviving "Power Virtual Agents" in the explanation of the ticketing-app
+  question. That one hid because the dump wrote it with narrow no-break spaces
+  (`Power\u202fVirtual\u202fAgents`), so a plain search for the phrase misses
+  it — `prose()` normalizes those to ordinary spaces at build time, which is
+  why it shows up on the page but not in a grep of the JSON. Search the baked
+  bank, not the source, when checking whether a term is really gone.
 
 ---
 
