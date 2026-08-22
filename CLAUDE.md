@@ -234,7 +234,7 @@ than a letter, matching the exam; the letters still work as keyboard shortcuts
 and the verdict names the correct **options**, not their letters.
 
 The favicon is an inline data-URI SVG — the `test.svg` glyph in white, inset
-inside a `#0078D4` rounded tile. It must stay inline: the page has to keep
+inside a black rounded tile. It must stay inline: the page has to keep
 working as a single file. The tile matters at 16px, where a bare glyph turns to
 mush and where the sibling GH-900 / GH-300 apps already use a white `+` on a
 colored square, so shape is what tells the tabs apart.
